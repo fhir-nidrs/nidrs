@@ -1,0 +1,16 @@
+{
+    "package-id" : "tw.gov.mohw.cdc.nidrs",
+    "version" : "0.1.0",
+    "path" : "https://cdc.gov.tw/nidrs/0.1.0",
+    "mode" : "milestone",
+    "status" : "ballot",
+    "sequence" : "Releases",
+    "descmd" : "第一個發布版本",
+    "first" : true,
+    "category" : "Public Health",
+    "title"  : "傳染病通報系統實作指引(NIDRS IG)",
+    "introduction"  : "傳染病通報系統實作指引(National Infectious Disease Reporting System Implementation Guide，NIDRS IG)",
+    "ci-build"  : "https://build.fhir.org/ig/twcdc-nidrs/nidrs"
+  }
+
+

@@ -1,0 +1,54 @@
+== Suppressed Messages ==
+# To Do
+The Implementation Guide contains no examples for this profile
+The Implementation Guide contains no examples for this extension
+
+# 提醒slice的pattern寫法將於R5版本不再支援，不影響驗證。（INFORMATION後方的 藍色字樣(1uses) 是指INFORMATION在此Profile中有被使用到）
+% The discriminator type 'pattern' is deprecated in R5%
+
+# deprecated extension，IG中未使用，不影響驗證。（後方的藍色字樣(1uses) 是指INFORMATION在此Profile中有被使用到）
+The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.3.0 is deprecated with the note: 'Use additionalBinding extension or element instead'
+The extension http://hl7.org/fhir/StructureDefinition/regex|5.3.0 is deprecated with the note: 'This was deprecated in favor of using a constraint on the element using FHIRPath, since constraints allow for the provision of a human readable message associated with the regex'
+
+# 使用預設的 HL7 代碼系統，但 HL7 validator 無法辨識代碼系統，此屬於HL7 validator 程式本身問題，非IG 設計問題，此提示訊息不影響實作與實際代碼驗證。（INFORMATION後方的藍色字樣(1 uses) 是指INFORMATION在此Profile中有被使用到）
+% There are multiple different potential matches for the url%
+% Reference to draft CodeSystem%
+
+# validated無法辨識URL，不影響驗證。（WARNING後方的 藍色字樣(1uses) 是指WARNING在此Profile中有被使用到）
+% Canonical URL%
+% URL value%
+
+# 最新版本的代碼不齊全，無法直接繼承，故先繼續使用0.3.2版
+% The ImplementationGuide uses package tw.gov.mohw.twcore#0.3.2%
+
+# 提醒slice雖有多筆，但實際只能填一筆，不影響驗證。（INFORMATION後方的 藍色字樣(1uses) 是指INFORMATION在此Profile中有被使用到）
+% Check that this is what is intended%
+
+# 繼承TW Core IG的Profile，無法取消欄位原有的MS(Must Support)註記，不影響驗證。（WARNING後方的 藍色字樣(1uses) 是指WARNING在此Profile中有被使用到）
+% The slice 'medicationReference' on path 'MedicationRequest.medication[x]'%
+% The slice 'medicationCodeableConcept' on path 'MedicationRequest.medication[x]'%
+
+# 邏輯模型的mapping，不影響驗證。
+% The html source has duplicate anchor Ids%
+
+# Publisher自動選擇代碼系統版本，不影響驗證。
+% Pinned the version of %
+
+# Publisher自動選擇代碼系統版本，不影響驗證。
+% The value set expansion is too large, and only a subset has been displayed%
+
+# 建議使用OID，但目前暫無需求，不影響驗證
+% have an OID%
+
+# 代碼的property定義為自定義
+This property has only a code ('district') and not a URI, so it has no clearly defined meaning in the terminology ecosystem
+This property has only a code ('city') and not a URI, so it has no clearly defined meaning in the terminology ecosystem
+This property has only a code ('diseaseCategory') and not a URI, so it has no clearly defined meaning in the terminology ecosystem
+This property has only a code ('transmissionRoute') and not a URI, so it has no clearly defined meaning in the terminology ecosystem
+
+# 總會的ISO 3166代碼系統無呈現代碼
+Source Code System urn:iso:std:iso:3166 doesn't have all content (content = not-present), so the source codes cannot be checked
+Target Code System urn:iso:std:iso:3166 doesn't have all content (content = not-present), so the target codes cannot be checked
+
+# 為方便醫院對應，國家代碼的Display以中文呈現，醫院上傳時可不填Display
+% Note that the display in the ValueSet does not have to match; this check exists to help check that it's not accidentally the wrong code%
