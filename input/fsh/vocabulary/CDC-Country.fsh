@@ -6,7 +6,21 @@ Description: "ISO 3166 + HL7 - 國家值集"
 * ^version = "0.1.0"
 * ^experimental = false
 * include codes from system urn:iso:std:iso:3166 where code regex /[A-Z]{3}/
+* include codes from system CDCCountry
 * http://terminology.hl7.org/CodeSystem/v3-NullFlavor#OTH
+
+CodeSystem: CDCCountry
+Id: cdc-country
+Title: "CDC-國家"
+Description: "臺灣衛生福利部疾病管制署「國家」代碼，代碼出版日期：2026-10-01；資料所屬單位：臺灣衛生福利部疾病管制署。"
+* ^caseSensitive = true
+* ^content = #complete
+* ^date = "2026-10-01"
+* ^version = "0.1.0"
+* ^experimental = false
+* #536 "沙伊兩國中立區"
+  * ^designation[0].language = #zh
+  * ^designation[0].value = "沙伊兩國中立區"
 
 ValueSet: CDCCountry
 Id: cdc-country
@@ -184,7 +198,7 @@ Description: "CDC-國家值集"
 * urn:iso:std:iso:3166#203 "捷克"
 * urn:iso:std:iso:3166#643 "俄羅斯"
 * urn:iso:std:iso:3166#887 "葉門 / 也門"
-//* urn:iso:std:iso:3166#536 "沙伊兩國中立區"
+* https://cdc.gov.tw/nidrs/ValueSet/cdc-country#536 "沙伊兩國中立區"
 * urn:iso:std:iso:3166#231 "衣索比亞 / 埃塞俄比亞"
 * urn:iso:std:iso:3166#732 "西撒哈拉"
 * urn:iso:std:iso:3166#740 "蘇利南 / 蘇里南"
@@ -959,10 +973,6 @@ Usage: #definition
 * group[=].element[=].display = "葉門 / 也門"
 * group[=].element[=].target.code = #YEM
 * group[=].element[=].target.equivalence = #equal
-/* group[=].element[+].code = #536
-* group[=].element[=].display = "沙伊兩國中立區"
-* group[=].element[=].target.code = #NTZ
-* group[=].element[=].target.equivalence = #equal*/
 * group[=].element[+].code = #231
 * group[=].element[=].display = "衣索比亞 / 埃塞俄比亞"
 * group[=].element[=].target.code = #ETH
