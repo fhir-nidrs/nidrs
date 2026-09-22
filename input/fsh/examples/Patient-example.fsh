@@ -45,8 +45,8 @@ Usage: #example
 
 Instance: example
 InstanceOf: PatientNIDRS
-Title: "病人資訊"
-Description: "依據病人資訊-Patient Profile呈現病人資訊之範例"
+Title: "個案資料"
+Description: "依據個案資料-Patient NIDRS Profile呈現個案資料之範例"
 Usage: #example
 * identifier[idCardNumber].use = #official
 * identifier[idCardNumber].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
