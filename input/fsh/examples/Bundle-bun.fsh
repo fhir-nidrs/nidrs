@@ -1,7 +1,7 @@
 Instance: bun
 InstanceOf: BundleNIDRS
-Title: "通報訊息"
-Description: "依據通報訊息-MessageHeader NIDRS Profile呈現通報訊息之範例"
+Title: "傳染病通報"
+Description: "依據傳染病通報-Bundle NIDRS Profile呈現傳染病通報之範例"
 Usage: #example
 * identifier.value = "1153100175258"
 * type = #message

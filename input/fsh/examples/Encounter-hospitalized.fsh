@@ -1,7 +1,7 @@
 Instance: hospitalized
 InstanceOf: EncounterNIDRS
-Title: "通報單登錄者"
-Description: "依據通報單登錄者-Practitioner Reporter NIDRS Profile呈現通報單登錄者之範例"
+Title: "病患動向與通報疾病"
+Description: "依據病患動向與通報疾病-Encounter NIDRS Profile呈現病患動向與通報疾病之範例"
 Usage: #example
 * status = #finished
 * class = http://terminology.hl7.org/CodeSystem/v3-ActCode#IMP
