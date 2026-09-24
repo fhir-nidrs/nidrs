@@ -8,10 +8,11 @@
 - [通報訊息-MessageHeader NIDRS](StructureDefinition-MessageHeader-NIDRS.html)
 
 #### Organization
-- [通報單位-Organization NIDRS](StructureDefinition-Organization-NIDRS.html)
+- [醫事機構-Organization NIDRS](StructureDefinition-Organization-NIDRS.html)
 
 #### Practitioner
-- [醫事人員-Practitioner NIDRS](StructureDefinition-Practitioner-NIDRS.html)
+- [通報單登錄者-Practitioner Reporter NIDRS](StructureDefinition-Practitioner-reporter-NIDRS.html)
+- [醫師-Practitioner NIDRSS](StructureDefinition-Practitioner-NIDRS.html)
 
 #### DiagnosticReport
 - [診斷報告-DiagnosticReport NIDRS](StructureDefinition-DiagnosticReport-NIDRS.html)
@@ -35,7 +36,6 @@
 - [暴露史-Observation Explore History](StructureDefinition-Observation-explore-history.html)
 
 
-
 ### Extensions
 以下[Extensions](http://hl7.org/fhir/R4/extensibility.html)已定義為本IG的一部分。
 - [DeathReasonA](StructureDefinition-extension-death-reason-a.html)：死亡原因甲
@@ -43,6 +43,7 @@
 - [DeathReasonC](StructureDefinition-extension-death-reason-c.html)：死亡原因丙
 - [DeathReasonD](StructureDefinition-extension-death-reason-d.html)：死亡原因丁
 - [DeathReasonOther](StructureDefinition-extension-death-reason-other.html)：死亡原因其他
+- [HasSymptom](StructureDefinition-extension-has-symptom.html)：有無症狀
 - [ModifiedReason](StructureDefinition-extension-modifiedReason.html)：修改原因
 - [Note](StructureDefinition-extension-note.html)：備註
 - [Org](StructureDefinition-extension-org.html)：人口密集機構
