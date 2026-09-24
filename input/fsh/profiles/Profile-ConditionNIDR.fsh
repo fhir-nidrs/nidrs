@@ -19,3 +19,15 @@ Description:    "此通報疾病(簡單病)-Condition NIDRS Profile說明本IG�
 * evidence.code ^short = "主要症狀關聯代碼"
 * evidence.code.text ^short = "當主要症狀含有其他時須填寫"
 * evidence.detail ^short = "疾病增補填答"
+
+* extension contains
+    https://cdc.gov.tw/nidrs/StructureDefinition/extension-has-symptom named HasSymptom 1..1 MS
+
+Extension: HasSymptom
+Id: extension-has-symptom
+Description: "有無症狀"
+Context: Condition
+* ^version = "0.1.0"
+* . ^definition = "有無症狀"
+* value[x] only boolean
+* value[x] ^short = "有無症狀"

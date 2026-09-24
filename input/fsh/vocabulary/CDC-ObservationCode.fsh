@@ -8,13 +8,13 @@ Description: "臺灣衛生福利部疾病管制署「Observation Code」代碼�
 * ^version = "0.1.0"
 * ^experimental = false
 * #travelType "旅遊類型"
-* #exposure "暴露史"
+* #exposureHistory "暴露史"
 * #explorePositive "與確定/極可能/可能病例曾有接觸或暴露共同感染源"
 * #exploreBodyFluid "具血體液接觸"
 * #exploreLab "具實驗室暴露史"
 * #explorePollutedFood "曾食用受汙染的水或食物"
 * #exploreIatrogenic "醫源型"
-* #animal "動物接觸史"
+* #animalExposure "動物接觸史"
 
 ValueSet: CDCObservationCode
 Id: cdc-observation-code

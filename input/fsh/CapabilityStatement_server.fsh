@@ -91,7 +91,8 @@ Usage: #definition
 * rest.resource[=].referencePolicy = #resolves
 
 * rest.resource[+].type = #Practitioner
-* rest.resource[=].profile = "https://cdc.gov.tw/nidrs/StructureDefinition/Practitioner-NIDRS"
+* rest.resource[=].supportedProfile[0] = "https://cdc.gov.tw/nidrs/StructureDefinition/Practitioner-reporter-NIDRS"
+* rest.resource[=].supportedProfile[1] = "https://cdc.gov.tw/nidrs/StructureDefinition/Practitioner-NIDRS"
 * rest.resource[=].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].extension.valueCode = #SHALL
 * rest.resource[=].interaction[0].code = #create
@@ -220,7 +221,7 @@ Usage: #definition
 * rest.resource[=].supportedProfile[0] = "https://cdc.gov.tw/nidrs/StructureDefinition/Observation-occupation"
 * rest.resource[=].supportedProfile[1] = "https://cdc.gov.tw/nidrs/StructureDefinition/Observation-travel-history"
 * rest.resource[=].supportedProfile[2] = "https://cdc.gov.tw/nidrs/StructureDefinition/Observation-animal-exposure"
-* rest.resource[=].supportedProfile[3] = "https://cdc.gov.tw/nidrs/StructureDefinition/Observation-explore"
+* rest.resource[=].supportedProfile[3] = "https://cdc.gov.tw/nidrs/StructureDefinition/Observation-explore-history"
 * rest.resource[=].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].extension.valueCode = #SHALL
 * rest.resource[=].interaction[0].code = #create

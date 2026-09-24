@@ -32,7 +32,7 @@
 - [職業-Observation Occupation](StructureDefinition-Observation-occupation.html)
 - [旅遊史-Observation Travel History](StructureDefinition-Observation-travel-history.html)
 - [接觸動物史-Observation Animal Exposure](StructureDefinition-Observation-animal-exposure.html)
-- [暴露史-Observation Explore](StructureDefinition-Observation-explore.html)
+- [暴露史-Observation Explore History](StructureDefinition-Observation-explore-history.html)
 
 
 

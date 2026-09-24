@@ -52,3 +52,10 @@ Target Code System urn:iso:std:iso:3166 doesn't have all content (content = not-
 
 # 為方便醫院對應，國家代碼的Display以中文呈現，醫院上傳時可不填Display
 % Note that the display in the ValueSet does not have to match; this check exists to help check that it's not accidentally the wrong code%
+
+# 暫時使用自訂代碼，日後將對應至icd10-cm-2023
+This element does not match any known slice defined in the profile https://cdc.gov.tw/nidrs/StructureDefinition/Condition-NIDRS|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+
+# 本專案情境不需填寫建議之欄位，不影響驗證
+Best Practice Recommendation: In general, all observations should have a performer
+Best Practice Recommendation: In general, all observations should have an effective[x] ()

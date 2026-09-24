@@ -18,7 +18,7 @@ Description:    "此診斷報告-DiagnosticReport NIDRS Profile說明本IG如何
 * performer only Reference(PractitionerNIDRS)
 * encounter only Reference(EncounterNIDRS)
 * result 2..
-* result only Reference(ObservationOccupation or ObservationTravelHistory or ObservationAnimalExposure or ObservationExplore)
+* result only Reference(ObservationOccupation or ObservationTravelHistory or ObservationAnimalExposure or ObservationExploreHistory)
 * code = http://loinc.org#11502-2
 * performer 1..1
 * subject 1..
@@ -31,6 +31,7 @@ Description:    "此診斷報告-DiagnosticReport NIDRS Profile說明本IG如何
 * issued ^short = "報告日期。「報告日期」欄位填入值僅可為該通報單建檔日起算往前31天內(含)之日期。"
 * subject ^short = "個案資料"
 * result ^short = "流行病學資料（職業/旅遊史/動物接觸史/暴露史）"
+* performer ^short = "診斷醫師"
 
 
 Extension: Note

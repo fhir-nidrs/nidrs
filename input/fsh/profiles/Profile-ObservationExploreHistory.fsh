@@ -1,11 +1,11 @@
-Profile:        ObservationExplore
+Profile:        ObservationExploreHistory
 Parent:         Observation
-Id:             Observation-explore
-Title:          "暴露史-Observation Explore"
-Description:    "此暴露史-Observation Explore Profile說明本IG如何進一步定義 FHIR 的 Observation Resource 以呈現暴露史"
+Id:             Observation-explore-history
+Title:          "暴露史-Observation Explore History"
+Description:    "此暴露史-Observation Explore History Profile說明本IG如何進一步定義 FHIR 的 Observation Resource 以呈現暴露史"
 * ^version = "0.1.0"
 * status = #final
-* code = https://cdc.gov.tw/nidrs/CodeSystem/cdc-observation-code#exposure
+* code = https://cdc.gov.tw/nidrs/CodeSystem/cdc-observation-code#exposureHistory
 
 * component ^slicing.discriminator.type = #value
 * component ^slicing.discriminator.path = "code"

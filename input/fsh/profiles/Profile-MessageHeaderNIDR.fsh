@@ -11,7 +11,7 @@ Description:    "此通報訊息-MessageHeader NIDRS Profile說明本IG如何進
 * sender 1..
 * sender only Reference(OrganizationNIDRS)
 * enterer 1..
-* enterer only Reference(PractitionerNIDRS)
+* enterer only Reference(PractitionerReporterNIDRS)
 * focus 1..
 * focus only Reference(DiagnosticReportNIDRS)
 * sender ^short = "通報單位"

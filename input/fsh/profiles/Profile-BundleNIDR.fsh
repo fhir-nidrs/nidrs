@@ -13,21 +13,23 @@ Description:    "此傳染病通報-Bundle NIDRS Profile說明本IG如何進一�
 * entry ^slicing.discriminator.path = "resource"
 * entry ^slicing.rules = #closed
 * entry contains
-	messageHeader 1..* MS and
-	diagnosticReport 1..* MS and
-	organization 1..* MS and
-	practitioner 1..* MS and
-	patient 1..* MS and
-	encounter 1..* MS and
+	messageHeader 1..1 MS and
+	diagnosticReport 1..1 MS and
+	organization 1..1 MS and
+	practitionerReporter 1..1 MS and
+	practitionerDiagnostician 1..1 MS and
+	patient 1..1 MS and
+	relatedPerson 0..1 MS and
+	encounter 1..1 MS and
 	observationOccupation 1..* MS and
 	observationTravelHistory 1..* MS and
 	observationAnimalExposure 0..* MS and
-	observationExplore 0..* MS and
+	observationExploreHistory 0..* MS and
 	condition 1..* MS
 
-* entry[observationExplore] ^short = "暴露史(Observation Explore)"
-* entry[observationExplore].resource 1..1 MS
-* entry[observationExplore].resource only ObservationExplore
+* entry[observationExploreHistory] ^short = "暴露史(Observation Explore History)"
+* entry[observationExploreHistory].resource 1..1 MS
+* entry[observationExploreHistory].resource only ObservationExploreHistory
 
 * entry[observationAnimalExposure] ^short = "接觸動物史(Observation Animal Exposure)"
 * entry[observationAnimalExposure].resource 1..1 MS
@@ -37,9 +39,9 @@ Description:    "此傳染病通報-Bundle NIDRS Profile說明本IG如何進一�
 * entry[observationTravelHistory].resource 1..1 MS
 * entry[observationTravelHistory].resource only ObservationTravelHistory
 
-* entry[observationOccupation] ^short = "職業(TWCore Observation Occupation)"
+* entry[observationOccupation] ^short = "職業(Observation Occupation)"
 * entry[observationOccupation].resource 1..1 MS
-* entry[observationOccupation].resource only TWCoreObservationOccupation
+* entry[observationOccupation].resource only ObservationOccupation
 
 * entry[diagnosticReport] ^short = "診斷報告(DiagnosticReport)"
 * entry[diagnosticReport].resource 1..1 MS
@@ -49,13 +51,21 @@ Description:    "此傳染病通報-Bundle NIDRS Profile說明本IG如何進一�
 * entry[encounter].resource 1..1 MS
 * entry[encounter].resource only EncounterNIDRS
 
-* entry[patient] ^short = "病人(Patient)"
+* entry[patient] ^short = "個案資料(Patient)"
 * entry[patient].resource 1..1 MS
 * entry[patient].resource only PatientNIDRS
 
-* entry[practitioner] ^short = "醫事人員(Practitioner)"
-* entry[practitioner].resource 1..1 MS
-* entry[practitioner].resource only PractitionerNIDRS
+* entry[relatedPerson] ^short = "個案生母資料(RelatedPerson)"
+* entry[relatedPerson].resource 1..1 MS
+* entry[relatedPerson].resource only RelatedPersonNIDRS
+
+* entry[practitionerReporter] ^short = "通報單登錄者(Practitioner Reporter)"
+* entry[practitionerReporter].resource 1..1 MS
+* entry[practitionerReporter].resource only PractitionerReporterNIDRS
+
+* entry[practitionerDiagnostician] ^short = "診斷醫師(Practitioner)"
+* entry[practitionerDiagnostician].resource 1..1 MS
+* entry[practitionerDiagnostician].resource only PractitionerNIDRS
 
 * entry[organization] ^short = "通報單位(Organization)"
 * entry[organization].resource 1..1 MS

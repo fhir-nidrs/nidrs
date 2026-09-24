@@ -30,6 +30,10 @@ Description:    "此個案生母資料-RelatedPerson NIDRS Profile說明本IG如
 * relationship = http://terminology.hl7.org/CodeSystem/v3-RoleCode#MTH
 * relationship 0..1
 * relationship.coding 0..1
+* patient only Reference(PatientNIDRS)
+* name 0..1
+* name.text 1..1
+* identifier 0..1
 
 * name ^short = "生母姓名"
 * name.text ^short = "生母姓名"

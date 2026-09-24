@@ -37,6 +37,7 @@ Description:    "此個案資料-Patient NIDRS Profile說明本IG如何進一步
 
 * address.district from CDCDistrictCode
 * address.city from CDCCityCode
+* address.extension[village].valueString from CDCVillageCode
 
 * identifier 1..1
 * identifier ^short = "身分證統一編號/外來人口之居留證統一證號、護照號碼。請優先填入身分證統一編號，如無法得知，始可填入居留證統一證號或護照號碼。倘無法取得上述3種證號時，請依下列規定填入「AA、BB或CC」，將由系統自動編碼流水證號(範例 : AA11300001)，通報成功後可至NIDRSS網頁查詢系統自動編號的號碼： (1) 本國新生兒(報告日期-出生日期 < 6個月)，請填入「AA」。 (2) 本國人士請填入「BB」。 (3) 外國人士請填入「CC」。"

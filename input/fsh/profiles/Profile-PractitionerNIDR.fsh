@@ -6,6 +6,7 @@ Description:    "此醫師-Practitioner NIDRS Profile說明本IG如何進一步�
 * ^version = "0.1.0"
 * name 1..1
 * name.text 1..1
+* telecom 0..0
 
 * name ^short = "診斷醫師姓名"
 * name.text ^short = "診斷醫師姓名"
