@@ -5,6 +5,7 @@ Title:          "傳染病通報-Bundle NIDRS"
 Description:    "此傳染病通報-Bundle NIDRS Profile說明本IG如何進一步定義臺灣核心-資料交換基本單位（TW Core Bundle）Profile以呈現傳染病通報"
 * ^version = "0.1.0"
 * type = #message
+* . obeys nidrs-date-birth-sick and nidrs-date-sick-diagnose and nidrs-date-sick-death
 
 * identifier ^short = "通報單號；修改通報單時此欄位必填"
 

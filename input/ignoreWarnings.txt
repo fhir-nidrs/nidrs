@@ -62,3 +62,10 @@ Best Practice Recommendation: In general, all observations should have an effect
 
 # 範例無須完全來自slice之定義
 This element does not match any known slice defined in the profile https://cdc.gov.tw/nidrs/StructureDefinition/Patient-NIDRS|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+
+# 已確認僅會有一筆，不影響驗證
+nidrs-nationality: The left side is inherently a collection, and so the expression 'extension.where(url = 'http://hl7.org/fhir/StructureDefinition/patient-nationality').extension.where(url = 'code').value.ofType(CodeableConcept).coding.code = '158'' may fail or return false if there is more than one item in the content being evaluated
+nidrs-country: The left side is inherently a collection, and so the expression 'coding.code = 'OTH'' may fail or return false if there is more than one item in the content being evaluated
+nidrs-animla: The left side is inherently a collection, and so the expression 'coding.code = '90'' may fail or return false if there is more than one item in the content being evaluated
+nidrs-date-travel: The left side is inherently a collection, and so the expression 'code.coding.code = '82752-7'' may fail or return false if there is more than one item in the content being evaluated
+nidrs-date-travel: The left side is inherently a collection, and so the expression 'code.coding.code = '91560-3'' may fail or return false if there is more than one item in the content being evaluated

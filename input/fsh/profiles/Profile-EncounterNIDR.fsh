@@ -11,6 +11,8 @@ Description:    "此病患動向與通報疾病-Encounter NIDRS Profile說明本
 * diagnosis 1..
 * diagnosis.condition only Reference(ConditionNIDRS)
 * class from Hospitalized
+* period.start obeys nidrs-date
+* period.end obeys nidrs-date
 
 * hospitalization.destination ^short = "轉至院所"
 * class ^short = "門診:AMB | 急診待床:EMER | 入住一般病房:IMP | 入住加護病房:icu | 入住隔離病房:isolationRoom | 出院:discharged | 轉院:transfer | 無就醫:none"

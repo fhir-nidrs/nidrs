@@ -23,3 +23,5 @@ Description:    "此動物接觸史-Observation Animal Exposure Profile說明本
 * component[AnimalType].value[x] ^short = "接觸動物種類"
 * component[AnimalType].valueCodeableConcept from CDCAnimal
 * component[AnimalType].valueCodeableConcept.text ^short = "其他接觸動物"
+* component[AnimalType].valueCodeableConcept obeys nidrs-animla
+* component[AnimalType].valueCodeableConcept.coding 1..1

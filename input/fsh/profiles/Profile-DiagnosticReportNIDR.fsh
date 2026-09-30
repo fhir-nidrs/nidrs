@@ -7,9 +7,9 @@ Description:    "此診斷報告-DiagnosticReport NIDRS Profile說明本IG如何
 * ^version = "0.1.0"
 * status = #final
 * extension contains
+    https://cdc.gov.tw/nidrs/StructureDefinition/extension-phbReceivedDay named phbReceivedDay 1..1 MS and
     https://cdc.gov.tw/nidrs/StructureDefinition/extension-note named note 0..1 MS and
-    https://cdc.gov.tw/nidrs/StructureDefinition/extension-modifiedReason named modifiedReason 0..1 MS and
-    https://cdc.gov.tw/nidrs/StructureDefinition/extension-phbReceivedDay named phbReceivedDay 0..1 MS
+    https://cdc.gov.tw/nidrs/StructureDefinition/extension-modifiedReason named modifiedReason 0..1 MS
 * extension[note] ^short = "備註，新增通報時可填寫，修改通報時不可填寫。"
 * extension[modifiedReason] ^short = "修改原因，修改通報時必填，新增通報時不可填寫"
 * extension[phbReceivedDay] ^short = "衛生局收到日"
@@ -32,7 +32,25 @@ Description:    "此診斷報告-DiagnosticReport NIDRS Profile說明本IG如何
 * subject ^short = "個案資料"
 * result ^short = "流行病學資料（職業/旅遊史/動物接觸史/暴露史）"
 * performer ^short = "診斷醫師"
+* . obeys nidrs-date-diagnose-reported and nidrs-date-reported-phb
+* effectiveDateTime obeys nidrs-date
+* issued obeys nidrs-date and nidrs-date-reported
+* extension[phbReceivedDay].valueDateTime obeys nidrs-date
 
+Invariant:      nidrs-date-reported-phb
+Description:    "報告日期(issued)不得晚於衛生局收到日(extension[phbReceivedDay])。"
+Severity:       #error
+Expression:     "issued.toString().substring(0, 10) <= extension.where(url = 'https://cdc.gov.tw/nidrs/StructureDefinition/extension-phbReceivedDay').value.ofType(dateTime).toString().substring(0, 10)"
+
+Invariant:      nidrs-date-reported
+Description:    "報告日期(issued)僅可為通報單建檔日起算往前31天內（含）之日期。"
+Severity:       #error
+Expression:     "$this >= today() - 31 days and $this <= today()"
+
+Invariant:      nidrs-date-diagnose-reported
+Description:    "診斷日期(effectiveDateTime)不得晚於報告日期(issued)。"
+Severity:       #error
+Expression:     "effective.ofType(dateTime).toString().substring(0, 10) <= issued.toString().substring(0, 10)"
 
 Extension: Note
 Id: extension-note

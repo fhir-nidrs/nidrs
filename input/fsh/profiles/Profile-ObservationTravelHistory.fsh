@@ -31,6 +31,7 @@ Description:    "此旅遊史-Observation Travel History Profile說明本IG如�
 * component[TravelArea].value[x] ^short = "地區。當旅遊類行為0填寫縣市代碼；旅遊類行為1或2填寫國家代碼。"
 * component[TravelArea].valueCodeableConcept from TravelArea
 * component[TravelArea].valueCodeableConcept.text ^short = "其他國家"
+* component[TravelArea].valueCodeableConcept obeys nidrs-country
 
 * component[TravelSubArea] ^short = "次級行政區。當旅遊類行為1或2，可選填。"
 * component[TravelSubArea].code = http://loinc.org#82754-3
@@ -40,6 +41,7 @@ Description:    "此旅遊史-Observation Travel History Profile說明本IG如�
 
 * component[TravelDateFrom] ^short = "開始時間。旅遊類型為2(國外居住史)時，此欄位為「離境居住國日期」"
 * component[TravelDateFrom].code = http://loinc.org#82752-7
+* component[TravelDateFrom].code.coding 1..1
 * component[TravelDateFrom].value[x] 1..
 * component[TravelDateFrom].value[x] only dateTime
 * component[TravelDateFrom].value[x] ^short = "開始時間。旅遊類型為2(國外居住史)時，此欄位為「離境居住國日期」"
@@ -48,11 +50,20 @@ Description:    "此旅遊史-Observation Travel History Profile說明本IG如�
 
 * component[TravelDateTo] ^short = "結束時間。旅遊類型為2(國外居住史)時，此欄位為「入境我國日期」"
 * component[TravelDateTo].code = http://loinc.org#91560-3
+* component[TravelDateTo].code.coding 1..1
 * component[TravelDateTo].value[x] 1..
 * component[TravelDateTo].value[x] only dateTime
 * component[TravelDateTo].value[x] ^short = "結束時間。旅遊類型為2(國外居住史)時，此欄位為「入境我國日期」"
 * component[TravelDateTo].value[x] ^example.label = "結束時間"
 * component[TravelDateTo].value[x] ^example.valueDateTime = "2026-04-16"
 
+* component[TravelDateFrom].valueDateTime obeys nidrs-date
+* component[TravelDateTo].valueDateTime obeys nidrs-date
+* . obeys nidrs-date-travel
 
 * valueBoolean ^short = "旅遊史。true:是 | false:否"
+
+Invariant:      nidrs-date-travel
+Description:    "旅遊開始日期(component:TravelDateFrom.valueDateTime)不得晚於旅遊結束日期(component:TravelDateTo.valueDateTime)。"
+Severity:       #error
+Expression:     "component.where(code.coding.code = '82752-7').value.ofType(dateTime) <= component.where(code.coding.code = '91560-3').value.ofType(dateTime)"

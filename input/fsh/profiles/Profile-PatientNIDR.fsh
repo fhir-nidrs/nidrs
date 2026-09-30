@@ -14,8 +14,8 @@ Description:    "此個案資料-Patient NIDRS Profile說明本IG如何進一步
 * address.district 1..1
 * address.city 1..
 * deceased[x] 1..
-* deceased[x].extension 
-* deceased[x].extension contains
+* deceasedDateTime.extension 
+* deceasedDateTime.extension contains
     https://cdc.gov.tw/nidrs/StructureDefinition/extension-death-reason-a named death-reason-a 0..1 MS and
     https://cdc.gov.tw/nidrs/StructureDefinition/extension-death-reason-b named death-reason-b 0..1 MS and
     https://cdc.gov.tw/nidrs/StructureDefinition/extension-death-reason-c named death-reason-c 0..1 MS and
@@ -62,6 +62,8 @@ Description:    "此個案資料-Patient NIDRS Profile說明本IG如何進一步
 * extension[nationality].extension[code].valueCodeableConcept from Country
 * extension[nationality].extension[code].valueCodeableConcept ^short = "國家"
 * extension[nationality].extension[code].valueCodeableConcept.text ^short = "其他國家"
+* extension[nationality].extension[code].valueCodeableConcept.coding 0..1
+* extension[nationality].extension[code].valueCodeableConcept obeys nidrs-country
 * address ^short = "聯絡地址"
 * address.district ^short = "居住縣市"
 * address.city ^short = "鄉鎮市區"
@@ -74,17 +76,27 @@ Description:    "此個案資料-Patient NIDRS Profile說明本IG如何進一步
 * telecom[phone].value ^short = "連絡電話"
 * telecom[sms] ^short = "手機"
 * telecom[sms].value ^short = "手機"
-* deceased[x].extension[death-reason-a] ^short = "死亡原因甲"
-* deceased[x].extension[death-reason-b] ^short = "死亡原因乙"
-* deceased[x].extension[death-reason-c] ^short = "死亡原因丙"
-* deceased[x].extension[death-reason-d] ^short = "死亡原因丁"
-* deceased[x].extension[death-reason-other] ^short = "死亡原因其他"
+* deceasedDateTime.extension[death-reason-a] ^short = "死亡原因甲"
+* deceasedDateTime.extension[death-reason-b] ^short = "死亡原因乙"
+* deceasedDateTime.extension[death-reason-c] ^short = "死亡原因丙"
+* deceasedDateTime.extension[death-reason-d] ^short = "死亡原因丁"
+* deceasedDateTime.extension[death-reason-other] ^short = "死亡原因其他"
 * extension[org] ^short = "人口密集機構"
 * extension[residence-type] ^short = "非本國籍居民身份"
-* . obeys patient-gender-match
+* . obeys patient-gender-match and nidrs-nationality and nidrs-deceased
 * identifier[residentNumber] obeys resident-number
-* deceasedDateTime obeys nidrs-date
+* deceasedDateTime obeys nidrs-date and nidrs-death-reason
 * birthDate obeys nidrs-date
+
+Invariant:      nidrs-death-reason
+Description:    "僅當死亡日期(deceasedDateTime)有值時，才可填寫死亡原因甲、乙、丙、丁或其他。"
+Severity:       #error
+Expression:     "extension.where(url = 'https://cdc.gov.tw/nidrs/StructureDefinition/extension-death-reason-a' or url = 'https://cdc.gov.tw/nidrs/StructureDefinition/extension-death-reason-b' or url = 'https://cdc.gov.tw/nidrs/StructureDefinition/extension-death-reason-c' or url = 'https://cdc.gov.tw/nidrs/StructureDefinition/extension-death-reason-d' or url = 'https://cdc.gov.tw/nidrs/StructureDefinition/extension-death-reason-other').exists() implies $this.hasValue()"
+
+Invariant:      nidrs-deceased
+Description:    "deceased[x]若使用 deceasedBoolean，僅可填寫 false；若個案已死亡，應使用 deceasedDateTime 填寫死亡日期時間。"
+Expression:     "deceased.ofType(boolean).exists() implies deceased.ofType(boolean) = false"
+Severity:       #error
 
 Invariant: patient-gender-match
 Description: "gender依據identifier:idCardNumber第二位字符檢核男性與女性代碼 (1=male, 2=female)"
@@ -167,3 +179,9 @@ Context: Patient
 * extension[orgId].value[x] ^short = "機構類別"
 * extension[orgId].value[x] only CodeableConcept
 * extension[orgId].valueCodeableConcept from CDCOrganizationType
+* . obeys nidrs-org
+
+Invariant:      nidrs-org
+Description:    "僅當人口密集機構(extension[hasOrg])為 true 時，才可填寫人口密集機構代碼(extension[orgId].valueCodeableConcept)。"
+Severity:       #error
+Expression:     "extension.where(url = 'orgId').value.ofType(CodeableConcept).exists() implies extension.where(url = 'hasOrg').value.ofType(boolean) = true"
