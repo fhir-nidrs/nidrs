@@ -1,6 +1,5 @@
 == Suppressed Messages ==
-# To Do
-The Implementation Guide contains no examples for this profile
+# 目前範例尚無使用該extension之需求
 The Implementation Guide contains no examples for this extension
 
 # 提醒slice的pattern寫法將於R5版本不再支援，不影響驗證。（INFORMATION後方的 藍色字樣(1uses) 是指INFORMATION在此Profile中有被使用到）
@@ -23,10 +22,6 @@ The extension http://hl7.org/fhir/StructureDefinition/regex|5.3.0 is deprecated 
 
 # 提醒slice雖有多筆，但實際只能填一筆，不影響驗證。（INFORMATION後方的 藍色字樣(1uses) 是指INFORMATION在此Profile中有被使用到）
 % Check that this is what is intended%
-
-# 繼承TW Core IG的Profile，無法取消欄位原有的MS(Must Support)註記，不影響驗證。（WARNING後方的 藍色字樣(1uses) 是指WARNING在此Profile中有被使用到）
-% The slice 'medicationReference' on path 'MedicationRequest.medication[x]'%
-% The slice 'medicationCodeableConcept' on path 'MedicationRequest.medication[x]'%
 
 # 邏輯模型的mapping，不影響驗證。
 % The html source has duplicate anchor Ids%
@@ -63,9 +58,5 @@ Best Practice Recommendation: In general, all observations should have an effect
 # 範例無須完全來自slice之定義
 This element does not match any known slice defined in the profile https://cdc.gov.tw/nidrs/StructureDefinition/Patient-NIDRS|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
 
-# 已確認僅會有一筆，不影響驗證
-nidrs-nationality: The left side is inherently a collection, and so the expression 'extension.where(url = 'http://hl7.org/fhir/StructureDefinition/patient-nationality').extension.where(url = 'code').value.ofType(CodeableConcept).coding.code = '158'' may fail or return false if there is more than one item in the content being evaluated
-nidrs-country: The left side is inherently a collection, and so the expression 'coding.code = 'OTH'' may fail or return false if there is more than one item in the content being evaluated
-nidrs-animla: The left side is inherently a collection, and so the expression 'coding.code = '90'' may fail or return false if there is more than one item in the content being evaluated
-nidrs-date-travel: The left side is inherently a collection, and so the expression 'code.coding.code = '82752-7'' may fail or return false if there is more than one item in the content being evaluated
-nidrs-date-travel: The left side is inherently a collection, and so the expression 'code.coding.code = '91560-3'' may fail or return false if there is more than one item in the content being evaluated
+# 此條件可能回傳多個集合，但已限制可填次數故不影響驗證。（WARNING後方的 藍色字樣(1uses) 是指WARNING在此Profile中有被使用到）
+% The left side is inherently a collection%

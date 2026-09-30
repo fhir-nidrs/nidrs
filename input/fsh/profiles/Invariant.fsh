@@ -42,3 +42,9 @@ Invariant:      nidrs-symptom
 Description:    "主要症狀填寫「其他」(999)時，其他主要症狀(code.text)必填。"
 Expression:     "coding.code = '999' implies text.exists()"
 Severity:       #error
+
+Invariant:      nidrs-travel
+Description:    "旅遊史填寫「是」(true)時，旅遊類型(component[TravelType])、地區(component[TravelArea])、開始時間(component[TravelDateFrom])、結束時間(component[TravelDateTo])必填。"
+Expression:     "value.ofType(boolean) = 'true' implies (component.where(code.coding.code = 'travelType').value.ofType(CodeableConcept).exists() and component.where(code.coding.code = '94651-7').value.ofType(CodeableConcept).exists() and component.where(code.coding.code = '82752-7').value.ofType(dateTime).exists() and component.where(code.coding.code = '91560-3').value.ofType(dateTime))"
+Severity:       #error
+

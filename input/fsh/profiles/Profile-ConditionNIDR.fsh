@@ -19,6 +19,7 @@ Description:    "此通報疾病(簡單病)-Condition NIDRS Profile說明本IG�
 * code ^short = "通報疾病"
 * evidence.code ^short = "主要症狀"
 * evidence.code.text ^short = "其他主要症狀。當主要症狀含有其他時須填寫"
+* evidence.code.coding 0..1
 * evidence.code obeys nidrs-symptom
 * evidence.detail ^short = "疾病增補填答"
 

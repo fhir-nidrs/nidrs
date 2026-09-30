@@ -14,8 +14,8 @@
 
 #### Practitioner
 
-- [診斷醫師](Practitioner-diagnostician.html)：依據醫師-Practitioner NIDRS Profile呈現診斷醫師之範例
 - [通報單登錄者](Practitioner-reporter.html)：依據通報單登錄者-Practitioner Reporter NIDRS Profile呈現通報單登錄者之範例
+- [診斷醫師](Practitioner-diagnostician.html)：依據醫師-Practitioner NIDRS Profile呈現診斷醫師之範例
 
 #### DiagnosticReport
 
@@ -39,7 +39,7 @@
 
 #### Observation
 
-- [動物接觸史](Observation-animal-exposure.html)：依據動物接觸史-Observation Animal Exposure Profile呈現動物接觸史之範例
-- [旅遊史](Observation-travel-history.html)：依據旅遊史-Observation Travel History Profile呈現旅遊史之範例
-- [暴露史](Observation-explore-history.html)：依據暴露史-Observation Explore History Profile呈現暴露史之範例
 - [職業](Observation-occupation.html)：依據職業-Observation Occupation Profile呈現職業之範例
+- [旅遊史](Observation-travel-history.html)：依據旅遊史-Observation Travel History Profile呈現旅遊史之範例
+- [動物接觸史](Observation-animal-exposure.html)：依據動物接觸史-Observation Animal Exposure Profile呈現動物接觸史之範例
+- [暴露史](Observation-explore-history.html)：依據暴露史-Observation Explore History Profile呈現暴露史之範例

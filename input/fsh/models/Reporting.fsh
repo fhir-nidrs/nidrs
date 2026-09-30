@@ -152,9 +152,6 @@ Description: "傳染病通報(Reporting)之資料模型"
     * modifiedReason ^example.label = "修改原因"
     * modifiedReason ^example.valueString = "修改原因"
     /*相關日期*/
-    * noSickDay 0..1 boolean "無發病日"
-    * noSickDay ^example.label = "無發病日"
-    * noSickDay ^example.valueBoolean = false
     * sickDay 0..1 date "發病日期
     ・有發病日時，本欄位必填，無發病日時，本欄不可填寫"
     * sickDay ^example.label = "發病日期"
@@ -181,7 +178,7 @@ Description: "傳染病通報(Reporting)之資料模型"
     * occupation from Occupation
     * occupation ^example.label = "職業"
     * occupation ^example.valueCode = #62
-    * occupationOther 0..1 string "詳細職業身分說明。當職業選擇不詳，請於本欄說明"
+    * occupationOther 0..1 string "詳細職業身分說明。當職業選擇無業(17000050)，請於本欄說明"
     * occupationOther ^example.label = "詳細職業身分說明"
     * occupationOther ^example.valueString = "退休"
     * hasTravelHistory 1..1 boolean "旅遊史。true:是 | false:否。若有旅遊史，請繼續填寫旅遊史(travel)"
@@ -245,3 +242,234 @@ Description: "傳染病通報(Reporting)之資料模型"
     * value 1..1 string "答案值"  
 
 
+// ============================================================
+// Bundle
+// ============================================================
+Mapping: NIDRSBundle
+Id: NIDRSBundle
+Title: "Mapping to NIDRS Bundle"
+Source: ReportingModel
+Target: "https://cdc.gov.tw/nidrs/StructureDefinition/Bundle-NIDRS"
+* report.common.reportId -> "Bundle.identifier.value"
+
+
+// ============================================================
+// MessageHeader
+// ============================================================
+Mapping: NIDRSMessageHeader
+Id: NIDRSMessageHeader
+Title: "Mapping to NIDRS MessageHeader"
+Source: ReportingModel
+Target: "https://cdc.gov.tw/nidrs/StructureDefinition/MessageHeader-NIDRS"
+* report.common.hospital -> "MessageHeader.sender.reference"
+* report.common.reporterName -> "MessageHeader.enterer.reference"
+* report.common.diagnostician -> "MessageHeader.focus.reference"
+
+
+// ============================================================
+// Organization
+// ============================================================
+Mapping: NIDRSOrganization
+Id: NIDRSOrganization
+Title: "Mapping to NIDRS Organization"
+Source: ReportingModel
+Target: "https://cdc.gov.tw/nidrs/StructureDefinition/Organization-NIDRS"
+* report.common.hospital -> "Organization.identifier.value"
+* report.common.hospitalName -> "Organization.name"
+* report.common.hospitalAddress -> "Organization.address.text"
+
+
+// ============================================================
+// Practitioner Reporter
+// ============================================================
+Mapping: NIDRSPractitionerReporter
+Id: NIDRSPractitionerReporter
+Title: "Mapping to NIDRS Practitioner Reporter"
+Source: ReportingModel
+Target: "https://cdc.gov.tw/nidrs/StructureDefinition/Practitioner-reporter-NIDRS"
+* report.common.reporterName -> "Practitioner.name.text"
+* report.common.hospitalContact -> "Practitioner.telecom.value"
+
+
+// ============================================================
+// DiagnosticReport
+// ============================================================
+Mapping: NIDRSDiagnosticReport
+Id: NIDRSDiagnosticReport
+Title: "Mapping to NIDRS DiagnosticReport"
+Source: ReportingModel
+Target: "https://cdc.gov.tw/nidrs/StructureDefinition/DiagnosticReport-NIDRS"
+* report.common.idno -> "DiagnosticReport.subject.reference"
+* report.common.diagnoseDay -> "DiagnosticReport.effectiveDateTime"
+* report.common.reportedDay -> "DiagnosticReport.issued"
+* report.common.diagnostician -> "DiagnosticReport.performer.reference"
+* report.common.occupation -> "DiagnosticReport.result.reference"
+* report.common.hasTravelHistory -> "DiagnosticReport.result.reference"
+* report.common.hasAnimalHistory -> "DiagnosticReport.result.reference"
+* report.common.explorePositive -> "DiagnosticReport.result.reference"
+* report.common.note -> "DiagnosticReport.extension:note.valueString"
+* report.common.modifiedReason -> "DiagnosticReport.extension:modifiedReason.valueString"
+* report.common.phbReceivedDay -> "DiagnosticReport.extension:phbReceivedDay.valueDateTime"
+
+
+// ============================================================
+// Patient
+// ============================================================
+Mapping: NIDRSPatient
+Id: NIDRSPatient
+Title: "Mapping to NIDRS Patient"
+Source: ReportingModel
+Target: "https://cdc.gov.tw/nidrs/StructureDefinition/Patient-NIDRS"
+* report.common.idno -> "Patient.identifier.value"
+* report.common.name -> "Patient.name:usual.text"
+* report.common.namePinyin -> "Patient.name:official.text"
+* report.common.gender -> "Patient.gender"
+* report.common.birthday -> "Patient.birthDate"
+* report.common.nationality -> "Patient.extension:nationality.valueCodeableConcept.coding.code"
+* report.common.nationalityOther -> "Patient.extension:nationality.valueCodeableConcept.text"
+* report.common.residenceType -> "Patient.extension:residenceType.valueCodeableConcept.coding.code"
+* report.common.residenceTypeOther -> "Patient.extension:residenceType.valueCodeableConcept.text"
+* report.common.residenceCounty -> "Patient.address.district"
+* report.common.residenceTown -> "Patient.address.city"
+* report.common.residenceVillage -> "Patient.address.extension:village.valueString"
+* report.common.address -> "Patient.address.text"
+* report.common.hasOrg -> "Patient.extension:org.extension:hasOrg.valueBoolean"
+* report.common.orgId -> "Patient.extension:org.extension:orgId.valueCodeableConcept.coding.code"
+* report.common.marriage -> "Patient.maritalStatus.coding.code"
+* report.common.death -> "Patient.deceasedBoolean"
+* report.common.deathDay -> "Patient.deceasedDateTime"
+* report.common.deathReasonA -> "Patient.deceasedDateTime.extension:death-reason-a.valueString"
+* report.common.deathReasonB -> "Patient.deceasedDateTime.extension:death-reason-b.valueString"
+* report.common.deathReasonC -> "Patient.deceasedDateTime.extension:death-reason-c.valueString"
+* report.common.deathReasonD -> "Patient.deceasedDateTime.extension:death-reason-d.valueString"
+* report.common.deathReasonOther -> "Patient.deceasedDateTime.extension:death-reason-other.valueString"
+* report.common.birthMotherName -> "Patient.link.other.reference"
+* report.contactInfo.contactType -> "Patient.telecom"
+* report.contactInfo.contactValue -> "Patient.telecom"
+
+
+// ============================================================
+// Encounter
+// ============================================================
+Mapping: NIDRSEncounter
+Id: NIDRSEncounter
+Title: "Mapping to NIDRS Encounter"
+Source: ReportingModel
+Target: "https://cdc.gov.tw/nidrs/StructureDefinition/Encounter-NIDRS"
+* report.common.hospitalizedOutpatient -> "Encounter.class.code"
+* report.common.hospitalizedEmergency -> "Encounter.class.code"
+* report.common.hospitalizedGeneralWard -> "Encounter.class.code"
+* report.common.hospitalizedIcu -> "Encounter.class.code"
+* report.common.hospitalizedIsolationRoom -> "Encounter.class.code"
+* report.common.hospitalizedDischarged -> "Encounter.class.code"
+* report.common.hospitalizedTransfer -> "Encounter.class.code"
+* report.common.hospitalizedNone -> "Encounter.class.code"
+* report.common.stayInIw -> "Encounter.period.start"
+* report.common.stayInIcu -> "Encounter.period.start"
+* report.common.hospitalizedDay -> "Encounter.period.start"
+* report.common.leaveIw -> "Encounter.period.end"
+* report.common.leaveIcu -> "Encounter.period.end"
+* report.common.discharge -> "Encounter.period.end"
+* report.common.transferDay -> "Encounter.period.end"
+* disease.diseaseId -> "Encounter.diagnosis.condition.reference"
+* report.common.transferHospital -> "Encounter.hospitalization.destination.reference"
+
+// 病患動向 boolean 欄位需依專案定義轉換為 Encounter.class.code。
+
+
+// ============================================================
+// Practitioner - Diagnostician
+// ============================================================
+Mapping: NIDRSPractitioner
+Id: NIDRSPractitioner
+Title: "Mapping to NIDRS Practitioner"
+Source: ReportingModel
+Target: "https://cdc.gov.tw/nidrs/StructureDefinition/Practitioner-NIDRS"
+* report.common.diagnostician -> "Practitioner.name.text"
+
+
+// ============================================================
+// Observation Occupation
+// ============================================================
+Mapping: NIDRSObservationOccupation
+Id: NIDRSObservationOccupation
+Title: "Mapping to NIDRS Observation Occupation"
+Source: ReportingModel
+Target: "https://cdc.gov.tw/nidrs/StructureDefinition/Observation-occupation"
+* report.common.idno -> "Observation.subject.reference"
+* report.common.occupation -> "Observation.valueCodeableConcept.coding.code"
+* report.common.occupationOther -> "Observation.valueCodeableConcept.text"
+
+
+
+// ============================================================
+// Observation Travel History
+// ============================================================
+Mapping: NIDRSObservationTravelHistory
+Id: NIDRSObservationTravelHistory
+Title: "Mapping to NIDRS Observation Travel History"
+Source: ReportingModel
+Target: "https://cdc.gov.tw/nidrs/StructureDefinition/Observation-travel-history"
+* report.common.hasTravelHistory -> "Observation.valueBoolean"
+* report.travel.travelType -> "Observation.component:TravelType.valueCodeableConcept.coding.code"
+* report.travel.travelArea -> "Observation.component:TravelArea.valueCodeableConcept.coding.code"
+* report.travel.travelAreaOther -> "Observation.component:TravelArea.valueCodeableConcept.text"
+* report.travel.travelSubArea -> "Observation.component:TravelSubArea.valueString"
+* report.travel.travelDateFrom -> "Observation.component:TravelDateFrom.valueDateTime"
+* report.travel.travelDateTo -> "Observation.component:TravelDateTo.valueDateTime"
+
+
+// ============================================================
+// Observation Animal Exposure
+// ============================================================
+Mapping: NIDRSObservationAnimalExposure
+Id: NIDRSObservationAnimalExposure
+Title: "Mapping to NIDRS Observation Animal Exposure"
+Source: ReportingModel
+Target: "https://cdc.gov.tw/nidrs/StructureDefinition/Observation-animal-exposure"
+* report.common.hasAnimalHistory -> "Observation.valueBoolean"
+* report.animal.animalId -> "Observation.component:AnimalType.valueCodeableConcept.coding.code"
+* report.animal.animalOther -> "Observation.component:AnimalType.valueCodeableConcept.text"
+
+
+// ============================================================
+// Observation Explore History
+// ============================================================
+Mapping: NIDRSObservationExploreHistory
+Id: NIDRSObservationExploreHistory
+Title: "Mapping to NIDRS Observation Explore History"
+Source: ReportingModel
+Target: "https://cdc.gov.tw/nidrs/StructureDefinition/Observation-explore-history"
+* report.common.explorePositive -> "Observation.component:explorePositive.valueBoolean"
+* report.common.exploreBodyFluid -> "Observation.component:exploreBodyFluid.valueBoolean"
+* report.common.exploreLab -> "Observation.component:exploreLab.valueBoolean"
+* report.common.explorePollutedFood -> "Observation.component:explorePollutedFood.valueBoolean"
+* report.common.exploreIatrogenic -> "Observation.component:exploreIatrogenic.valueBoolean"
+
+
+// ============================================================
+// RelatedPerson - Birth Mother
+// ============================================================
+Mapping: NIDRSRelatedPerson
+Id: NIDRSRelatedPerson
+Title: "Mapping to NIDRS RelatedPerson"
+Source: ReportingModel
+Target: "https://cdc.gov.tw/nidrs/StructureDefinition/RelatedPerson-NIDRS"
+* report.common.birthMotherName -> "RelatedPerson.name.text"
+* report.common.birthMotherIdno -> "RelatedPerson.identifier.value"
+
+
+// ============================================================
+// Condition
+// ============================================================
+Mapping: NIDRSCondition
+Id: NIDRSCondition
+Title: "Mapping to NIDRS Condition"
+Source: ReportingModel
+Target: "https://cdc.gov.tw/nidrs/StructureDefinition/Condition-NIDRS"
+* report.common.hasSymptom -> "Condition.extension:HasSymptom.valueBoolean"
+* disease.diseaseId -> "Condition.code.coding.code"
+* report.common.idno -> "Condition.subject.reference"
+* report.common.sickDay -> "Condition.onsetDateTime"
+* disease.diseaseSymptom -> "Condition.evidence.code.coding.code"
+* disease.diseaseSymptomOther -> "Condition.evidence.code.text"

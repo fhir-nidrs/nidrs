@@ -59,7 +59,7 @@ Description:    "此旅遊史-Observation Travel History Profile說明本IG如�
 
 * component[TravelDateFrom].valueDateTime obeys nidrs-date
 * component[TravelDateTo].valueDateTime obeys nidrs-date
-* . obeys nidrs-date-travel
+* . obeys nidrs-date-travel and nidrs-travel
 
 * valueBoolean ^short = "旅遊史。true:是 | false:否"
 
