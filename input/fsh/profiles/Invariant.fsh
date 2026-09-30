@@ -23,10 +23,10 @@ Description:    "非本國籍居民身份填寫「其他」(9)時，非本國籍
 Expression:     "coding.code = '9' implies text.exists()"
 Severity:       #error
 
-Invariant:     nidrs-date-sick-diagnose
-Description:   "發病日期(Condition.onsetDateTime)若有值，不得晚於診斷日期(DiagnosticReport.effectiveDateTime)。"
-Expression:    "Bundle.entry.resource.ofType(Condition).onset.ofType(dateTime).exists() implies Bundle.entry.resource.ofType(Condition).onset.ofType(dateTime) <= Bundle.entry.resource.ofType(DiagnosticReport).effective.ofType(dateTime)"
-Severity:      #error
+Invariant:      nidrs-date-sick-diagnose
+Description:    "發病日期(Condition.onsetDateTime)若有值，且通報疾病非指定例外疾病(結核病、多重抗藥性結核病、布氏桿菌病、漢生病、後天免疫缺乏症候群、人類免疫缺乏病毒感染(含母子垂直感染及孕產婦疑似個案)、疱疹B病毒感染症、德國麻疹、登革熱、裂谷熱、狂犬病毒檢驗、拉薩熱、梅毒、先天性梅毒、淋病、弓形蟲感染症、嚴重特殊傳染性肺炎(112/3/19以前病例定義版本)、屈公病、Ｍ痘、新型A型流感、立百病毒感染症、中東呼吸症候群冠狀病毒感染症、發熱伴血小板減少綜合症、茲卡病毒篩檢、茲卡病毒感染症)時，不得晚於診斷日期(DiagnosticReport.effectiveDateTime)。"
+Expression:     "(Bundle.entry.resource.ofType(Condition).onset.ofType(dateTime).exists() and Bundle.entry.resource.ofType(Condition).code.coding.where(code = '010' or code = '010m' or code = '023' or code = '030' or code = '042' or code = '044' or code = '0543' or code = '056' or code = '061' or code = '0663a' or code = '071T' or code = '0788b' or code = '090' or code = '091' or code = '098' or code = '130' or code = '19CoV' or code = 'A920' or code = 'MPXV' or code = 'NFluA' or code = 'NiV' or code = 'NoCoV' or code = 'SFTS' or code = 'ZIKAT' or code = 'ZIKAV').empty()) implies Bundle.entry.resource.ofType(Condition).onset.ofType(dateTime) <= Bundle.entry.resource.ofType(DiagnosticReport).effective.ofType(dateTime)"
+Severity:       #error
 
 Invariant:      nidrs-date-sick-death
 Description:    "發病日期(Condition.onsetDateTime)及死亡日期(Patient.deceasedDateTime)皆有值時，發病日期不得晚於死亡日期。"
