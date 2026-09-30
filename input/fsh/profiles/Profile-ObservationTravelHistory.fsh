@@ -21,12 +21,14 @@ Description:    "此旅遊史-Observation Travel History Profile說明本IG如�
 * component[TravelType].code = https://cdc.gov.tw/nidrs/CodeSystem/cdc-observation-code#travelType
 * component[TravelType].value[x] 1..
 * component[TravelType].value[x] only CodeableConcept
+* component[TravelType].value[x] ^short = "旅遊類型。0:國內旅遊 | 1:國外旅遊史 | 2:國外居住史"
 * component[TravelType].valueCodeableConcept from CDCTravelType
 
-* component[TravelArea] ^short = "地區。當旅遊類行為0填寫縣市代碼；1或2填寫國家代碼。"
+* component[TravelArea] ^short = "地區。當旅遊類行為0填寫縣市代碼；旅遊類行為1或2填寫國家代碼。"
 * component[TravelArea].code = http://loinc.org#94651-7
 * component[TravelArea].value[x] 1..
 * component[TravelArea].value[x] only CodeableConcept
+* component[TravelArea].value[x] ^short = "地區。當旅遊類行為0填寫縣市代碼；旅遊類行為1或2填寫國家代碼。"
 * component[TravelArea].valueCodeableConcept from TravelArea
 * component[TravelArea].valueCodeableConcept.text ^short = "其他國家"
 
@@ -34,11 +36,13 @@ Description:    "此旅遊史-Observation Travel History Profile說明本IG如�
 * component[TravelSubArea].code = http://loinc.org#82754-3
 * component[TravelSubArea].value[x] 1..
 * component[TravelSubArea].value[x] only string
+* component[TravelSubArea].value[x] ^short = "次級行政區。當旅遊類行為1或2，可選填。"
 
 * component[TravelDateFrom] ^short = "開始時間。旅遊類型為2(國外居住史)時，此欄位為「離境居住國日期」"
 * component[TravelDateFrom].code = http://loinc.org#82752-7
 * component[TravelDateFrom].value[x] 1..
 * component[TravelDateFrom].value[x] only dateTime
+* component[TravelDateFrom].value[x] ^short = "開始時間。旅遊類型為2(國外居住史)時，此欄位為「離境居住國日期」"
 * component[TravelDateFrom].value[x] ^example.label = "開始時間"
 * component[TravelDateFrom].value[x] ^example.valueDateTime = "2026-04-15"
 
@@ -46,6 +50,7 @@ Description:    "此旅遊史-Observation Travel History Profile說明本IG如�
 * component[TravelDateTo].code = http://loinc.org#91560-3
 * component[TravelDateTo].value[x] 1..
 * component[TravelDateTo].value[x] only dateTime
+* component[TravelDateTo].value[x] ^short = "結束時間。旅遊類型為2(國外居住史)時，此欄位為「入境我國日期」"
 * component[TravelDateTo].value[x] ^example.label = "結束時間"
 * component[TravelDateTo].value[x] ^example.valueDateTime = "2026-04-16"
 

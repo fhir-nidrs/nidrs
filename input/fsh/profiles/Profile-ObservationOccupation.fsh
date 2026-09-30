@@ -6,5 +6,6 @@ Description:    "此職業-Observation Occupation Profile說明本IG如何進一
 * ^version = "0.1.0"
 * status = #final
 * valueCodeableConcept from https://cdc.gov.tw/nidrs/ValueSet/occupation
+* subject only Reference(PatientNIDRS)
 
 * valueCodeableConcept.text ^short = "詳細職業身分說明"

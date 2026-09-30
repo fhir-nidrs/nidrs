@@ -1,7 +1,7 @@
 Instance: animal-exposure
 InstanceOf: ObservationAnimalExposure
-Title: "接觸動物史"
-Description: "依據接觸動物史-Observation Animal Exposure Profile呈現接觸動物史之範例"
+Title: "動物接觸史"
+Description: "依據動物接觸史-Observation Animal Exposure Profile呈現動物接觸史之範例"
 Usage: #example
 * status = #final
 * code = https://cdc.gov.tw/nidrs/CodeSystem/cdc-observation-code#animalExposure

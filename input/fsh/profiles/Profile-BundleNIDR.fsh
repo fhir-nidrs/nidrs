@@ -31,7 +31,7 @@ Description:    "此傳染病通報-Bundle NIDRS Profile說明本IG如何進一�
 * entry[observationExploreHistory].resource 1..1 MS
 * entry[observationExploreHistory].resource only ObservationExploreHistory
 
-* entry[observationAnimalExposure] ^short = "接觸動物史(Observation Animal Exposure)"
+* entry[observationAnimalExposure] ^short = "動物接觸史(Observation Animal Exposure)"
 * entry[observationAnimalExposure].resource 1..1 MS
 * entry[observationAnimalExposure].resource only ObservationAnimalExposure
 

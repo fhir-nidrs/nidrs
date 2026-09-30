@@ -152,18 +152,75 @@ Description: "傳染病通報(Reporting)之資料模型"
     * modifiedReason ^example.label = "修改原因"
     * modifiedReason ^example.valueString = "修改原因"
     /*相關日期*/
+    * noSickDay 0..1 boolean "無發病日"
+    * noSickDay ^example.label = "無發病日"
+    * noSickDay ^example.valueBoolean = false
+    * sickDay 0..1 date "發病日期
+    ・有發病日時，本欄位必填，無發病日時，本欄不可填寫"
+    * sickDay ^example.label = "發病日期"
+    * sickDay ^example.valueDate = "2021-01-01"
+    * diagnoseDay 1..1 date "診斷日期"
+    * diagnoseDay ^example.label = "發病日期"
+    * diagnoseDay ^example.valueDate = "2021-01-01"
+    * reportedDay 1..1 date "報告日期
+    ・「報告日期」欄位填入值僅可為該通報單建檔日起算往前31天內(含)之日期"
+    * reportedDay ^example.label = "報告日期"
+    * reportedDay ^example.valueDate = "2021-01-01"
+    * phbReceivedDay 1..1 date "衛生局收到日"    
+    * phbReceivedDay ^example.label = "衛生局收到日"
+    * phbReceivedDay ^example.valueDate = "2021-01-01"         
     /*臨床症狀*/
+    * hasSymptom 1..1 boolean "有無症狀
+      ・通報結核病時，此欄位與主要症狀(DISEASE_SYMPTOM)不可填寫
+      ・若「有」症狀，「發病日」必填
+      ・若「無」症狀，「無發病日」需選擇True"
+    * hasSymptom ^example.label = "有無症狀"
+    * hasSymptom ^example.valueBoolean = true
     /*流行病學資料*/
+    * occupation 1..1 code "職業"
+    * occupation from Occupation
+    * occupation ^example.label = "職業"
+    * occupation ^example.valueCode = #62
+    * occupationOther 0..1 string "詳細職業身分說明。當職業選擇不詳，請於本欄說明"
+    * occupationOther ^example.label = "詳細職業身分說明"
+    * occupationOther ^example.valueString = "退休"
+    * hasTravelHistory 1..1 boolean "旅遊史。true:是 | false:否。若有旅遊史，請繼續填寫旅遊史(travel)"
+    * hasTravelHistory ^example.label = "旅遊史"
+    * hasTravelHistory ^example.valueBoolean = true
+    * hasAnimalHistory 0..1 boolean "動物接觸史。true:是 | false:否。
+    若有動物接觸史，請繼續填寫動物接觸史(animal)。
+    以下疾病不收集動物接觸史，若傳送將不檢核且不呈現於網頁：
+    德國麻疹、麻疹、急性病毒性D型肝炎、腸病毒感染併發重症"
+    * hasAnimalHistory ^example.label = "動物接觸史"
+    * hasAnimalHistory ^example.valueBoolean = true
+    * explorePositive 0..1 boolean "與確定/極可能/可能病例曾有接觸或暴露共同感染源"
+    * explorePositive ^example.label = "與確定/極可能/可能病例曾有接觸或暴露共同感染源"
+    * explorePositive ^example.valueBoolean = false
+    * exploreBodyFluid 0..1 boolean "具血體液接觸"
+    * exploreBodyFluid ^example.label = "具血體液接觸"
+    * exploreBodyFluid ^example.valueBoolean = false
+    * exploreLab 0..1 boolean "具實驗室暴露史"
+    * exploreLab ^example.label = "具實驗室暴露史"
+    * exploreLab ^example.valueBoolean = false
+    * explorePollutedFood 0..1 boolean "曾食用受汙染的水或食物"
+    * explorePollutedFood ^example.label = "曾食用受汙染的水或食物"
+    * explorePollutedFood ^example.valueBoolean = false
+    * exploreIatrogenic 0..1 boolean "醫源型"
+    * exploreIatrogenic ^example.label = "醫源型"
+    * exploreIatrogenic ^example.valueBoolean = false
     /*個案生母資料*/
-
-  
-  
+    * birthMotherName 0..1 string "生母姓名"
+    * birthMotherName ^example.label = "生母姓名"
+    * birthMotherName ^example.valueString = "王美枝"
+    * birthMotherIdno 0..1 string "生母身份證統一編號/外來人口之居留證統一證號"
+    * birthMotherIdno ^example.label = "生母身份證統一編號/外來人口之居留證統一證號"
+    * birthMotherIdno ^example.valueString = "M123456789"
   * contactInfo 1..1 BackboneElement "個案聯絡資料"
-    * contactType 1..1 code "0:連絡電話/1:手機 連絡電話、手機皆必填"
+    * contactType 1..1 code "0:連絡電話 | 1:手機。連絡電話、手機皆必填"
     * contactValue 1..1 string "連絡電話、手機值"
   * travel 0..* BackboneElement "旅遊史。共同欄位的旅遊史為有時，需填寫。"
     * travelType 1..1 code "旅遊類型。0:國內旅遊 | 1:國外旅遊史 | 2:國外居住史"
-    * travelArea 1..1 code "地區。0:填寫縣市代碼; 1,2:填寫國家代碼"
+    * travelArea 1..1 code "地區。當旅遊類行為0填寫縣市代碼；旅遊類行為1或2填寫國家代碼。"
     * travelAreaOther 0..1 string "其他國家；國外旅遊史/國外居住史國家代碼選擇其他時，本欄位必填"
     * travelSubArea 0..1 string "次級行政區；國外旅遊史/國外居住史，可選填"
     * travelDateFrom 1..1 date "開始時間。
@@ -175,7 +232,7 @@ Description: "傳染病通報(Reporting)之資料模型"
     ・旅遊類型為「國外居住史」時，此欄位為「入境我國日期」"
     * travelDateTo ^example.label = "結束時間"
     * travelDateTo ^example.valueDate = "2021-01-01"
-  * animal 0..* BackboneElement "接觸動物史。共同欄位的動物接觸史為有時，需填寫。"
+  * animal 0..* BackboneElement "動物接觸史。共同欄位的動物接觸史為有時，需填寫。"
     * animalId 1..1 code "接觸動物種類"
     * animalOther 0..1 string "其他接觸動物。接觸動物種類代碼為其他，本欄位必填。"
 
@@ -188,34 +245,3 @@ Description: "傳染病通報(Reporting)之資料模型"
     * value 1..1 string "答案值"  
 
 
-/*
-
-
-* noSickDay 0..1 boolean "無發病日"
-* sickDay 0..1 string "發病日期
- ・有發病日時，本欄位必填，無發病日時，本欄不可填寫"
-* diagnoseDay 1..1 string "診斷日期"
-* reportedDay 1..1 string "報告日期
- ・「報告日期」欄位填入值僅可為該通報單建檔日起算往前31天內(含)之日期"
-* phbReceivedDay 1..1 string "衛生局收到日"
-* hasSymptom 1..1 boolean "有無症狀
- ・通報結核病時，此欄位與主要症狀(DISEASE_SYMPTOM)不可填寫
- ・若「有」症狀，「發病日」必填
- ・若「無」症狀，「無發病日」需選擇True"
-* occupation 1..1 code "職業
- 代碼:職業代碼"
-* occupationOther 0..1 string "詳細職業身分說明
- 當職業選擇不詳，請於本欄說明"
-* hasTravelHistory 1..1 boolean "旅遊史 (true-有, false-無)；若有旅遊史，請繼續填寫旅遊史(TRAVEL)"
-* hasAnimalHistory 0..1 boolean "動物接觸史 (true-有, false-無)；
-若有動物接觸史，請繼續填寫接觸動物史(ANIMAL)
- 以下疾病不收集動物接觸史，若傳送將不檢核且不呈現於網頁：
- 德國麻疹、麻疹、急性病毒性D型肝炎、腸病毒感染併發重症"
-* explorePositive 0..1 boolean "與確定/極可能/可能病例曾有接觸或暴露共同感染源"
-* exploreBodyFluid 0..1 boolean "具血體液接觸"
-* exploreLab 0..1 boolean "具實驗室暴露史"
-* explorePollutedFood 0..1 boolean "曾食用受汙染的水或食物"
-* exploreIatrogenic 0..1 boolean "醫源型"
-* birthMotherName 0..1 string "生母姓名"
-* birthMotherIdno 0..1 string "生母身份證統一編號/外來人口之居留證統一證號"
-*/

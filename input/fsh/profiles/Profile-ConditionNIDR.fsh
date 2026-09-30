@@ -16,12 +16,13 @@ Description:    "此通報疾病(簡單病)-Condition NIDRS Profile說明本IG�
 
 * onsetDateTime ^short = "發病日期"
 * code ^short = "通報疾病"
-* evidence.code ^short = "主要症狀關聯代碼"
-* evidence.code.text ^short = "當主要症狀含有其他時須填寫"
+* evidence.code ^short = "主要症狀"
+* evidence.code.text ^short = "其他主要症狀。當主要症狀含有其他時須填寫"
 * evidence.detail ^short = "疾病增補填答"
 
 * extension contains
     https://cdc.gov.tw/nidrs/StructureDefinition/extension-has-symptom named HasSymptom 1..1 MS
+* extension[HasSymptom] ^short = "有無症狀"
 
 Extension: HasSymptom
 Id: extension-has-symptom

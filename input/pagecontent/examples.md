@@ -39,7 +39,7 @@
 
 #### Observation
 
-- [接觸動物史](Observation-animal-exposure.html)：依據接觸動物史-Observation Animal Exposure Profile呈現接觸動物史之範例
+- [動物接觸史](Observation-animal-exposure.html)：依據動物接觸史-Observation Animal Exposure Profile呈現動物接觸史之範例
 - [旅遊史](Observation-travel-history.html)：依據旅遊史-Observation Travel History Profile呈現旅遊史之範例
 - [暴露史](Observation-explore-history.html)：依據暴露史-Observation Explore History Profile呈現暴露史之範例
 - [職業](Observation-occupation.html)：依據職業-Observation Occupation Profile呈現職業之範例
