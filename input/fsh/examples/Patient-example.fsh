@@ -70,9 +70,6 @@ Usage: #example
 		<b>手機(telecom:sms)</b>：0918123123
 	</p>
 	<p>
-		<b>手機(telecom:sms)</b>：0918123123
-	</p>
-	<p>
 		<b>居住縣市(address.district)</b>：新北市 <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> （ <a href=\"CodeSystem-cdc-district-code.html\">CDC-縣市代碼</a>#65000） </span>
 	<br/>
 		<b>鄉鎮市區(address.city)</b>：新店區 <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> （ <a href=\"CodeSystem-cdc-city-code.html#cdc-city-code-65000060\">CDC-鄉鎮區代碼</a>#65000060） </span>

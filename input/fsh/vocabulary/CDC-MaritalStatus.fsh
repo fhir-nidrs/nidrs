@@ -77,7 +77,7 @@ Usage: #definition
 * group[+].source = "https://cdc.gov.tw/nidrs/CodeSystem/cdc-marital-status"
 * group[=].sourceVersion = "0.1.0"
 * group[=].target = "http://terminology.hl7.org/CodeSystem/v3-NullFlavor"
-* group[=].targetVersion = "2018-08-12"
+* group[=].targetVersion = "4.0.0"
 * group[=].element[0].code = #9
 * group[=].element[=].display = "未知"
 * group[=].element[=].target.code = #UNK
