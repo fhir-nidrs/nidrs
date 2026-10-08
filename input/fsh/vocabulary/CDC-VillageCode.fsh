@@ -36,7 +36,7 @@ Description: "臺灣衛生福利部疾病管制署「村里」代碼，代碼出
   * ^property[0].valueString = "新北市"
   * ^property[1].code = #city
   * ^property[1].valueString = "板橋區"
-/* #65000010004 "黃石里"
+ #65000010004 "黃石里"
   * ^designation[0].language = #zh
   * ^designation[0].value = "黃石里"
   * ^property[0].code = #district
@@ -3451,7 +3451,7 @@ Description: "臺灣衛生福利部疾病管制署「村里」代碼，代碼出
   * ^property[0].code = #district
   * ^property[0].valueString = "新北市"
   * ^property[1].code = #city
-  * ^property[1].valueString = "新店區"*/
+  * ^property[1].valueString = "新店區"
 * #65000060008 "信義里"
   * ^designation[0].language = #zh
   * ^designation[0].value = "信義里"
@@ -3459,7 +3459,7 @@ Description: "臺灣衛生福利部疾病管制署「村里」代碼，代碼出
   * ^property[0].valueString = "新北市"
   * ^property[1].code = #city
   * ^property[1].valueString = "新店區"
-/* #65000060009 "忠孝里"
+ #65000060009 "忠孝里"
   * ^designation[0].language = #zh
   * ^designation[0].value = "忠孝里"
   * ^property[0].code = #district
@@ -54691,7 +54691,7 @@ Description: "臺灣衛生福利部疾病管制署「村里」代碼，代碼出
   * ^property[0].code = #district
   * ^property[0].valueString = "連江縣"
   * ^property[1].code = #city
-  * ^property[1].valueString = "東引鄉"*/
+  * ^property[1].valueString = "東引鄉"
 
 ValueSet: CDCVillageCode
 Id: cdc-village-code

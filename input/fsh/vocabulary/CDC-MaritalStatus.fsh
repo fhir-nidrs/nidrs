@@ -53,7 +53,7 @@ Usage: #definition
 * group[0].source = "https://cdc.gov.tw/nidrs/CodeSystem/cdc-marital-status"
 * group[=].sourceVersion = "0.1.0"
 * group[=].target = "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus"
-* group[=].targetVersion = "2018-08-12"
+* group[=].targetVersion = "5.0.0"
 * group[=].element[0].code = #1
 * group[=].element[=].display = "未婚"
 * group[=].element[=].target.code = #U

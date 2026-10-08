@@ -9,7 +9,7 @@ Description:    "此醫事機構-Organization NIDRS Profile說明本IG如何進�
 
 * address 1..1
 * address.text 1.. MS
-
+* name 1..
 * identifier ^short = "通報單位醫事機構十碼章"
 * identifier.value ^short = "通報單位醫事機構十碼章"
 * name ^short = "通報單位名稱"

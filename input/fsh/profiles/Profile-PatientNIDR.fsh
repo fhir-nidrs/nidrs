@@ -67,6 +67,7 @@ Description:    "此個案資料-Patient NIDRS Profile說明本IG如何進一步
 * address ^short = "聯絡地址"
 * address.district ^short = "居住縣市"
 * address.city ^short = "鄉鎮市區"
+* address.extension[village] MS
 * address.extension[village] ^short = "居住村里"
 * address.text ^short = "街道地址"
 * maritalStatus ^short = "婚姻狀況"
