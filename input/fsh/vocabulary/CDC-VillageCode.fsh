@@ -36,7 +36,7 @@ Description: "臺灣衛生福利部疾病管制署「村里」代碼，代碼出
   * ^property[0].valueString = "新北市"
   * ^property[1].code = #city
   * ^property[1].valueString = "板橋區"
- #65000010004 "黃石里"
+* #65000010004 "黃石里"
   * ^designation[0].language = #zh
   * ^designation[0].value = "黃石里"
   * ^property[0].code = #district
