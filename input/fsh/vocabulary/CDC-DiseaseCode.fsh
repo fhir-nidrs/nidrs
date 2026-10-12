@@ -1,3 +1,22 @@
+/*Instance: icd-cdc-disease
+InstanceOf: ConceptMap
+Title: "CDC-疾病代碼對應臺灣2023年中文版ICD-10-CM"
+Usage: #definition
+* experimental = false
+* status = #active
+* date = "2026-10-01"
+* version = "0.1.0"
+* name = "CDCHL7Gender"
+* title = "CDC-疾病代碼對應臺灣2023年中文版ICD-10-CM"
+* description = "此對應表為臺灣衛生福利部疾病管制署「疾病」對應TW Core IG，供實作者於撰寫程式以自動化對應或轉代碼時使用。"
+* sourceCanonical = "https://cdc.gov.tw/nidrs/ValueSet/cdc-disease-code"
+* targetCanonical = "https://cdc.gov.tw/nidrs/ValueSet/gender"
+* group[0].source = "https://cdc.gov.tw/nidrs/CodeSystem/cdc-disease-code"
+* group[=].sourceVersion = "0.1.0"
+* group[=].target = "http://hl7.org/fhir/administrative-gender"
+* group[=].targetVersion = "4.0.1"*/
+
+
 ValueSet: CDCDiseaseCode
 Id: cdc-disease-code
 Title: "CDC-疾病代碼值集"
@@ -739,6 +758,16 @@ Description: "臺灣衛生福利部疾病管制署「疾病」代碼，代碼出
 * #NIPAH ^property[0].valueString = "重點監視項目"
 * #NIPAH ^property[1].code = #transmissionRoute
 * #NIPAH ^property[1].valueString = "其他"
+* #NIPAH ^property[2].code = #inactive
+* #NIPAH ^property[2].valueBoolean = true
+
+* #NiV "立百病毒感染症"
+  * ^designation[0].language = #zh
+  * ^designation[0].value = "立百病毒感染症"
+* #NiV ^property[0].code = #diseaseCategory
+* #NiV ^property[0].valueString = "第五類法定傳染病"
+* #NiV ^property[1].code = #transmissionRoute
+* #NiV ^property[1].valueString = "接觸傳染"
 
 * #MPXV "M痘"
   * ^designation[0].language = #zh
