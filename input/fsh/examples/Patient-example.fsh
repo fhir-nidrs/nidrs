@@ -79,6 +79,6 @@ Usage: #example
 		<b>街道地址(address.text)</b>：新北市新店區寶安街2樓
 	</p>
 	<p>
-		<b>生母資料(link.other)</b>：<a href=\"RelatedPerson-mom.html\">RelatedPerson 王美枝</a>
+		<b>生母資料(link.other)</b>：<a href=\"RelatedPerson-mom.html\">RelatedPerson/mom</a>
 	</p>
 </div>"

@@ -2380,10 +2380,6 @@ Description: "臺灣衛生福利部疾病管制署「疾病通報症狀」代碼
   * ^designation[0].language = #zh
   * ^designation[0].value = "早產"
 
-* #999 "其他"
-  * ^designation[0].language = #zh
-  * ^designation[0].value = "其他"
-
 * #474 "CT顯示肺炎"
   * ^designation[0].language = #zh
   * ^designation[0].value = "CT顯示肺炎"
@@ -2556,3 +2552,7 @@ Description: "臺灣衛生福利部疾病管制署「疾病通報症狀」代碼
 * #540 "上腹疼痛"
   * ^designation[0].language = #zh
   * ^designation[0].value = "上腹疼痛"
+
+* #999 "其他"
+  * ^designation[0].language = #zh
+  * ^designation[0].value = "其他"

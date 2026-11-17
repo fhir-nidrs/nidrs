@@ -89,3 +89,23 @@ Usage: #definition
 * group[=].element[=].display = "入住一般病房"
 * group[=].element[=].target.code = #IMP
 * group[=].element[=].target.equivalence = #equivalent
+
+* group[=].element[+].code = #icu
+* group[=].element[=].display = "入住加護病房"
+* group[=].element[=].target.equivalence = #unmatched
+
+* group[=].element[+].code = #isolationRoom
+* group[=].element[=].display = "入住隔離病房"
+* group[=].element[=].target.equivalence = #unmatched
+
+* group[=].element[+].code = #discharged
+* group[=].element[=].display = "出院"
+* group[=].element[=].target.equivalence = #unmatched
+
+* group[=].element[+].code = #transfer
+* group[=].element[=].display = "轉院"
+* group[=].element[=].target.equivalence = #unmatched
+
+* group[=].element[+].code = #none
+* group[=].element[=].display = "無就醫"
+* group[=].element[=].target.equivalence = #unmatched

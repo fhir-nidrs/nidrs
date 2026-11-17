@@ -21,7 +21,7 @@ Description: "臺灣壽險公會 + 臺灣勞動部 + CDC - 職業值集"
 * https://cdc.gov.tw/nidrs/CodeSystem/cdc-occupation#44
 * https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/occupation-mol-tw#3151
 * https://cdc.gov.tw/nidrs/CodeSystem/cdc-occupation#46
-* https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/occupation-mol-tw#512
+* https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/occupation-mol-tw#5120
 * https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/occupation-mol-tw#791
 * https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/occupation-mol-tw#513
 * https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/occupation-mol-tw#23
@@ -33,7 +33,7 @@ Description: "臺灣壽險公會 + 臺灣勞動部 + CDC - 職業值集"
 * https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/occupation-mol-tw#24
 * https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/occupation-mol-tw#25
 * https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/occupation-mol-tw#26
-* https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/occupation-mol-tw#411
+* https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/occupation-mol-tw#4110
 * https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/occupation-mol-tw#5
 * https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/occupation-mol-tw#8
 * https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/occupation-lia-roc-tw#17000050
@@ -448,3 +448,172 @@ Usage: #definition
 * group[=].element[=].display = "畜牧業人員"
 * group[=].element[=].target.code = #01020020
 * group[=].element[=].target.equivalence = #equivalent
+
+// ============================================================
+// Group 1：勞動部
+// ============================================================
+
+* group[1].source = "https://cdc.gov.tw/nidrs/CodeSystem/cdc-occupation"
+* group[=].sourceVersion = "0.1.0"
+* group[=].target = "https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/occupation-mol-tw"
+* group[=].targetVersion = "2010-05-01"
+
+
+* group[=].element[+].code = #34
+* group[=].element[=].display = "醫護及其他醫事人員"
+* group[=].element[=].target.code = #22
+* group[=].element[=].target.display = "醫療保健專業人員"
+* group[=].element[=].target.equivalence = #relatedto
+
+* group[=].element[+].code = #35
+* group[=].element[=].display = "醫療院所工作者(非醫事人員)"
+* group[=].element[=].target.code = #2299
+* group[=].element[=].target.display = "未分類其他醫療保健專業人員"
+* group[=].element[=].target.equivalence = #relatedto
+
+* group[=].element[+].code = #40
+* group[=].element[=].display = "農業人員"
+* group[=].element[=].target.code = #601
+* group[=].element[=].target.display = "農藝及園藝作物栽培人員"
+* group[=].element[=].target.equivalence = #relatedto
+
+* group[=].element[+].code = #42
+* group[=].element[=].display = "林業、漁業人員"
+* group[=].element[=].target[0].code = #9202
+* group[=].element[=].target[=].display = "林業勞力工"
+* group[=].element[=].target[=].equivalence = #narrower
+* group[=].element[=].target[=].comment = "林業"
+* group[=].element[=].target[1].code = #9203
+* group[=].element[=].target[=].display = "漁業勞力工"
+* group[=].element[=].target[=].equivalence = #narrower
+* group[=].element[=].target[=].comment = "漁業"
+
+* group[=].element[+].code = #43
+* group[=].element[=].display = "機師及機組員"
+* group[=].element[=].target.code = #3153
+* group[=].element[=].target.display = "飛航駕駛員及有關工作人員"
+* group[=].element[=].target.equivalence = #relatedto
+
+* group[=].element[+].code = #45
+* group[=].element[=].display = "船舶旅運服務人員"
+* group[=].element[=].target.code = #3151
+* group[=].element[=].target.display = "船舶輪機長及有關工作人員"
+* group[=].element[=].target.equivalence = #relatedto
+
+* group[=].element[+].code = #47
+* group[=].element[=].display = "廚師"
+* group[=].element[=].target.code = #5120
+* group[=].element[=].target.display = "廚師"
+* group[=].element[=].target.equivalence = #equivalent
+
+* group[=].element[+].code = #48
+* group[=].element[=].display = "食品製造及加工人員"
+* group[=].element[=].target.code = #791
+* group[=].element[=].target.display = "食品製造及有關工作人員"
+* group[=].element[=].target.equivalence = #relatedto
+
+* group[=].element[+].code = #49
+* group[=].element[=].display = "餐飲服務人員"
+* group[=].element[=].target.code = #513
+* group[=].element[=].target.display = "餐飲服務人員"
+* group[=].element[=].target.equivalence = #equivalent
+
+* group[=].element[+].code = #50
+* group[=].element[=].display = "教師及教務專業人員"
+* group[=].element[=].target.code = #23
+* group[=].element[=].target.display = "教學專業人員"
+* group[=].element[=].target.equivalence = #equivalent
+
+* group[=].element[+].code = #51
+* group[=].element[=].display = "軍人/軍校生"
+* group[=].element[=].target.code = #0100
+* group[=].element[=].target.display = "軍人"
+* group[=].element[=].target.equivalence = #equivalent
+
+* group[=].element[+].code = #54
+* group[=].element[=].display = "各行業主管及經理人員、民意代表"
+* group[=].element[=].target.code = #1
+* group[=].element[=].target.display = "民意代表、主管及經理人員"
+* group[=].element[=].target.equivalence = #relatedto
+
+* group[=].element[+].code = #55
+* group[=].element[=].display = "科學及工程專業人員"
+* group[=].element[=].target.code = #21
+* group[=].element[=].target.display = "科學及工程專業人員"
+* group[=].element[=].target.equivalence = #equivalent
+
+* group[=].element[+].code = #56
+* group[=].element[=].display = "商業及行政專業人員"
+* group[=].element[=].target.code = #24
+* group[=].element[=].target.display = "商業及行政專業人員"
+* group[=].element[=].target.equivalence = #equivalent
+
+* group[=].element[+].code = #57
+* group[=].element[=].display = "資訊及通訊專業人員"
+* group[=].element[=].target.code = #25
+* group[=].element[=].target.display = "資訊及通訊專業人員"
+* group[=].element[=].target.equivalence = #equivalent
+
+* group[=].element[+].code = #58
+* group[=].element[=].display = "法律、社會及文化專業人員"
+* group[=].element[=].target.code = #26
+* group[=].element[=].target.display = "法律、社會及文化專業人員"
+* group[=].element[=].target.equivalence = #equivalent
+
+* group[=].element[+].code = #59
+* group[=].element[=].display = "辦公室事務支援人員"
+* group[=].element[=].target.code = #4110
+* group[=].element[=].target.display = "一般辦公室事務人員"
+* group[=].element[=].target.equivalence = #equivalent
+
+* group[=].element[+].code = #60
+* group[=].element[=].display = "服務及銷售工作人員"
+* group[=].element[=].target.code = #5
+* group[=].element[=].target.display = "服務及銷售工作人員"
+* group[=].element[=].target.equivalence = #equivalent
+
+* group[=].element[+].code = #61
+* group[=].element[=].display = "技藝工作、機械設備操作及組裝人員"
+* group[=].element[=].target.code = #8
+* group[=].element[=].target.display = "機械設備操作及組裝人員"
+* group[=].element[=].target.equivalence = #relatedto
+
+
+//* group[2].source = "https://cdc.gov.tw/nidrs/CodeSystem/cdc-occupation"
+//* group[=].sourceVersion = "0.1.0"
+
+* group[=].element[+].code = #44
+* group[=].element[=].display = "地勤及機場其他工作人員"
+* group[=].element[=].target.equivalence = #unmatched
+
+* group[=].element[+].code = #46
+* group[=].element[=].display = "陸上旅運服務人員"
+* group[=].element[=].target.equivalence = #unmatched
+
+* group[=].element[+].code = #52
+* group[=].element[=].display = "人口密集機構受照顧人員"
+* group[=].element[=].target.equivalence = #unmatched
+
+* group[=].element[+].code = #53
+* group[=].element[=].display = "矯正機關戒護人員或收容人"
+* group[=].element[=].target.equivalence = #unmatched
+
+* group[=].element[+].code = #62
+* group[=].element[=].display = "無業"
+* group[=].element[=].target.equivalence = #unmatched
+
+* group[=].element[+].code = #63
+* group[=].element[=].display = "不詳"
+* group[=].element[=].target.equivalence = #unmatched
+
+* group[=].element[+].code = #64
+* group[=].element[=].display = "防疫旅宿相關工作人員"
+* group[=].element[=].target.equivalence = #unmatched
+
+* group[=].element[+].code = #65
+* group[=].element[=].display = "集中檢疫所相關工作人員"
+* group[=].element[=].target.equivalence = #unmatched
+
+* group[=].element[+].code = #66
+* group[=].element[=].display = "防疫車隊相關工作人員"
+* group[=].element[=].target.equivalence = #unmatched

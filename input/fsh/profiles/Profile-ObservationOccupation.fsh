@@ -8,4 +8,5 @@ Description:    "此職業-Observation Occupation Profile說明本IG如何進一
 * valueCodeableConcept from https://cdc.gov.tw/nidrs/ValueSet/occupation
 * subject only Reference(PatientNIDRS)
 
+* value[x] ^short = "職業"
 * valueCodeableConcept.text ^short = "詳細職業身分說明。若不確定個案職業，建議填寫'17000050'"
