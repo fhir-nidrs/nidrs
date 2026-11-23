@@ -85,8 +85,8 @@ Description:    "此個案資料-Patient NIDRS Profile說明本IG如何進一步
 * deceasedDateTime.extension[death-reason-other] ^short = "死亡原因其他"
 * extension[org] ^short = "人口密集機構"
 * extension[residence-type] ^short = "非本國籍居民身份"
-* . obeys patient-gender-match and nidrs-nationality and nidrs-deceased
-* identifier[residentNumber] obeys resident-number
+* . obeys nidrs-nationality and nidrs-deceased and nidrs-patient-gender-match
+* identifier[residentNumber] obeys nidrs-resident-number
 * deceasedDateTime obeys nidrs-date and nidrs-death-reason
 * birthDate obeys nidrs-date
 
@@ -100,12 +100,12 @@ Description:    "deceased[x]若使用 deceasedBoolean，僅可填寫 false；若
 Expression:     "deceased.ofType(boolean).exists() implies deceased.ofType(boolean) = false"
 Severity:       #error
 
-Invariant: patient-gender-match
+Invariant: nidrs-patient-gender-match
 Description: "gender依據identifier:idCardNumber第二位字符檢核男性與女性代碼 (1=male, 2=female)"
 Expression: "identifier.where(system = 'http://www.moi.gov.tw').value.exists() implies (identifier.where(system = 'http://www.moi.gov.tw').value.substring(1, 1) = '1' implies gender = 'male') and (identifier.where(system = 'http://www.moi.gov.tw').value.substring(1, 1) = '2' implies gender = 'female')"
 Severity: #warning
 
-Invariant: resident-number
+Invariant: nidrs-resident-number
 Description: "居留證號格式為：「1碼英文+9碼數字」或「2碼英文+8碼數字」。"
 Expression: "value.matches('^([A-Za-z][0-9]{9}|[A-Za-z]{2}[0-9]{8})$')"
 Severity: #error
