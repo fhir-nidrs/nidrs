@@ -33,9 +33,14 @@ Description:    "發病日期(Condition.onsetDateTime)及死亡日期(Patient.de
 Severity:       #error
 Expression:     "(Bundle.entry.resource.ofType(Condition).onset.ofType(dateTime).exists() and Bundle.entry.resource.ofType(Patient).deceased.ofType(dateTime).exists()) implies Bundle.entry.resource.ofType(Condition).onset.ofType(dateTime) <= Bundle.entry.resource.ofType(Patient).deceased.ofType(dateTime)"
 
-Invariant:      nidrs-animla
+Invariant:      nidrs-animal
 Description:    "接觸動物種類代碼填寫「其他」(90)時，其他接觸動物(valueCodeableConcept.text)必填。"
 Expression:     "coding.code = '90' implies text.exists()"
+Severity:       #error
+
+Invariant:      nidrs-animal-2
+Description:    "動物接觸史為是(true)時，接觸動物種類(valueCodeableConcept.text)必填。"
+Expression:     "value.ofType(boolean) = 'true' implies component.where(code.coding.code = '95376-0').value.ofType(CodeableConcept).exists()"
 Severity:       #error
 
 Invariant:      nidrs-symptom
@@ -46,5 +51,26 @@ Severity:       #error
 Invariant:      nidrs-travel
 Description:    "旅遊史填寫「是」(true)時，旅遊類型(component[TravelType])、地區(component[TravelArea])、開始時間(component[TravelDateFrom])、結束時間(component[TravelDateTo])必填。"
 Expression:     "value.ofType(boolean) = 'true' implies (component.where(code.coding.code = 'travelType').value.ofType(CodeableConcept).exists() and component.where(code.coding.code = '94651-7').value.ofType(CodeableConcept).exists() and component.where(code.coding.code = '82752-7').value.ofType(dateTime).exists() and component.where(code.coding.code = '91560-3').value.ofType(dateTime))"
+Severity:       #error
+
+Invariant:      nidrs-address-district-city
+Description:    "鄉鎮區代碼必須屬於所填寫的縣市。"
+Expression:     "city.startsWith(district)"
+Severity:       #error
+
+Invariant:      nidrs-address-city-village
+Description:    "村里代碼必須屬於所填寫的鄉鎮區代碼。"
+Expression:     "extension.where(url = 'https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/tw-village').exists()
+implies extension.where(url = 'https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/tw-village').value.ofType(string).startsWith(city)"
+Severity:       #error
+
+Invariant:      nidrs-discharged
+Description:    "病患動向(class)為出院(discharged)，但未填出院日(period.end)。"
+Expression:     "class.code = 'discharged' implies period.end.exists()"
+Severity:       #error
+
+Invariant:      nidrs-transfer
+Description:    "病患動向(class)為轉院(transfer)，但未填轉至院所名稱(hospitalization.destination)、轉院日期(period.end)。"
+Expression:     "class.code = 'transfer' implies hospitalization.destination.exists() and period.end.exists()"
 Severity:       #error
 

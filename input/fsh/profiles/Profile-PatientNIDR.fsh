@@ -36,6 +36,7 @@ Description:    "此個案資料-Patient NIDRS Profile說明本IG如何進一步
 * telecom[sms].system = #sms
 * maritalStatus from https://cdc.gov.tw/nidrs/ValueSet/marital-status
 
+* address obeys nidrs-address-district-city and nidrs-address-city-village
 * address.district from CDCDistrictCode
 * address.city from CDCCityCode
 * address.extension[village].valueString from CDCVillageCode
@@ -165,6 +166,7 @@ Context: Patient
 * value[x] ^short = "非本國籍居民身份"
 * valueCodeableConcept from CDCResidenceType
 * valueCodeableConcept.text ^short = "非本國籍居民身份說明"
+* valueCodeableConcept obeys nidrs-residence
 
 Extension: Org
 Id: extension-org

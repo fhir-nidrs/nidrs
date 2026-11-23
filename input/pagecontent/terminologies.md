@@ -28,7 +28,6 @@
 ### 代碼系統（Code Systems）
 
 * [CDC-性別](CodeSystem-cdc-gender.html)
-* [CDC-國家](CodeSystem-cdc-country.html)
 * [CDC-居留代碼](CodeSystem-cdc-residence-type.html)
 * [CDC-縣市代碼](CodeSystem-cdc-district-code.html)
 * [CDC-鄉鎮區代碼](CodeSystem-cdc-city-code.html)

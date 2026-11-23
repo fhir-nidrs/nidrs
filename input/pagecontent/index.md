@@ -68,7 +68,7 @@
         <tr>
             <td>作者-IG</td>
             <td>曾鈺珈</td>
-            <td rowspan="5" style="vertical-align: middle;">精誠資訊股份有限公司</td>
+            <td rowspan="5" style="vertical-align: middle;">精誠科技整合股份有限公司</td>
         </tr>
         <tr>
             <td>貢獻者-IG</td>

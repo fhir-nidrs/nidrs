@@ -26,12 +26,17 @@ Description:    "此通報疾病(簡單病)-Condition NIDRS Profile說明本IG�
 * extension contains
     https://cdc.gov.tw/nidrs/StructureDefinition/extension-has-symptom named HasSymptom 1..1 MS
 * extension[HasSymptom] ^short = "有無症狀"
-* . obeys nidrs-has-symptom and nidrs-has-symptom-onset
+* . obeys nidrs-has-symptom and nidrs-has-symptom-onset and nidrs-has-onset-symptom
 
 Invariant:      nidrs-has-symptom-onset
 Description:    "有無症狀(extension[HasSymptom])為「有」時，發病日期(onsetDateTime)必填；為「無」時，發病日期不可填寫。"
 Severity:       #error
 Expression:     "(extension.where(url = 'https://cdc.gov.tw/nidrs/StructureDefinition/extension-has-symptom').value.ofType(boolean).where($this = true).exists() implies onset.ofType(dateTime).exists()) and (extension.where(url = 'https://cdc.gov.tw/nidrs/StructureDefinition/extension-has-symptom').value.ofType(boolean).where($this = false).exists() implies onset.ofType(dateTime).empty())"
+
+Invariant:      nidrs-has-onset-symptom
+Description:    "有發病日期(onsetDateTime)時，症狀(evidence.code)必填。"
+Severity:       #error
+Expression:     "onset.ofType(dateTime).exists() implies evidence.code.exists()"
 
 Invariant:      nidrs-has-symptom
 Description:    "若通報疾病ID不為結核病(10)或多重抗藥性結核病(010m)，則有無症狀(extension[HasSymptom])為必填。"

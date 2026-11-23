@@ -9,6 +9,7 @@ Description:    "此動物接觸史-Observation Animal Exposure Profile說明本
 * value[x] only boolean
 * valueBoolean 1..1
 * valueBoolean ^short = "動物接觸史。true:是 | false:否"
+* . obeys nidrs-animal-2
 
 * component ^slicing.discriminator.type = #value
 * component ^slicing.discriminator.path = "code"
@@ -23,5 +24,5 @@ Description:    "此動物接觸史-Observation Animal Exposure Profile說明本
 * component[AnimalType].value[x] ^short = "接觸動物種類"
 * component[AnimalType].valueCodeableConcept from CDCAnimal
 * component[AnimalType].valueCodeableConcept.text ^short = "其他接觸動物"
-* component[AnimalType].valueCodeableConcept obeys nidrs-animla
+* component[AnimalType].valueCodeableConcept obeys nidrs-animal
 * component[AnimalType].valueCodeableConcept.coding 1..1
