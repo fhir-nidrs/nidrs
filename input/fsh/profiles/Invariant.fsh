@@ -14,8 +14,8 @@ Expression:     "(coding.where(code = 'OTH').exists() implies text.exists()) and
 Severity:       #error
 
 Invariant:      nidrs-nationality
-Description:    "國籍為本國籍（158）時，非本國籍居民身分(extension[residence-type])不可填寫。"
-Expression:     "extension.where(url = 'http://hl7.org/fhir/StructureDefinition/patient-nationality').extension.where(url = 'code').value.ofType(CodeableConcept).coding.code = '158' implies extension.where(url = 'https://cdc.gov.tw/nidrs/StructureDefinition/extension-residence-type').empty()"
+Description:    "國籍為本國籍（TWN）時，非本國籍居民身分(extension[residence-type])不可填寫。"
+Expression:     "extension.where(url = 'http://hl7.org/fhir/StructureDefinition/patient-nationality').extension.where(url = 'code').value.ofType(CodeableConcept).coding.code = 'TWN' implies extension.where(url = 'https://cdc.gov.tw/nidrs/StructureDefinition/extension-residence-type').empty()"
 Severity:       #error
 
 Invariant:      nidrs-residence
